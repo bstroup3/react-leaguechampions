@@ -1,0 +1,26 @@
+.header{
+    text-align: center;
+    color: goldenrod;
+}
+
+.champs{
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    text-align:center;
+    justify-content: center;
+}
+
+.champ{
+    display: grid;
+    width: fit-content;
+    margin: 20px;
+}
+.champName{
+    color: white;
+    font-weight: Bold;
+}
+
+body{
+    background-color: white;
+}
