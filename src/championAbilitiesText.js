@@ -40,11 +40,12 @@ const championAbilityText = ({abilityInfo}) => {
 
     //no scaling
     if(abilityInfo.vars.length === 0){
+        const desc = abilityInfo.description
         return(
             <div className="row">
                 <div className="col">
                     <h3>{abilityInfo.name}</h3>
-                    {abilityInfo.description}
+                    <div dangerouslySetInnerHTML={{__html: desc}}/>
                 </div>
             </div>
         )
