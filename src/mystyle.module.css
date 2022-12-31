@@ -10,8 +10,33 @@
     text-align:center;
     justify-content: center;
 }
-.champList{
+.champCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: row-reverse;
+    position: fixed;
+    width: 50%;
+    margin-left: 25%;
+}
 
+.champ:hover{
+    transition: 0.5s;
+    background: grey;
+}
+
+.backButton{
+    background:goldenrod;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.backButton:hover{
+    cursor: pointer;
+     background: rgb(117, 88, 15);
+     transition: 0.5s;
 }
 
 .champList:hover{
@@ -39,7 +64,23 @@ body{
 }
 
 .champSplash{
-    display:inline;
+    display:inline-block;
     margin: 5px;
 }
+.champSplash:hover{
+    cursor: pointer;
+}
 
+.champSplashBorderLeft{
+    display: block;
+    position: fixed;
+    left: 0.5%;
+    top: 10%;
+}
+
+.champSplashBorderRight{
+    display: block;
+    position: fixed;
+    right: 0.5%;
+    top: 10%;
+}

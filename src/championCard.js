@@ -1,5 +1,6 @@
 import React from 'react';
 import ChampionAbilities from './championAbilities';
+import style from './mystyle.module.css';
 
 
 const championCard = ({currentChampionData, onCardClickBack}) => {
@@ -17,8 +18,8 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
     // console.log(skins);
     return (
         <div className="container">
-            <div className="row">
-                <div className="col-4 text-center">
+            <div className={style.champCard}>
+                <div className={style.champSplashBorderRight}>
                     <img src={loadingSplashUrl} alt="champion splash" />
                 </div>
                 <div className="col-8">
@@ -35,13 +36,18 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
                     <div>
                         Attack Damage: {Math.round(stats.attackdamage)} - {Math.round(stats.attackdamageperlevel * 18 + stats.attackdamage)} ({stats.attackdamageperlevel} per level)
                     </div>
+                    <br/>
+                    <h2>Abilities</h2>
                     {/* <div className="row"> */}
                         <ChampionAbilities championData={champion}/>
                     {/* </div> */}
                     
-                    <div onClick={() => onCardClickBack()}>
-                        BACK
-                    </div>
+                    <button onClick={() => onCardClickBack()} className={style.backButton}>
+                        Back
+                    </button>
+                </div>
+                <div className={style.champSplashBorderLeft}>
+                    <img src={loadingSplashUrl} alt="champion splash" />
                 </div>
             </div>
         </div>

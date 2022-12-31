@@ -43,7 +43,7 @@ const championAbilityText = ({abilityInfo}) => {
         return(
             <div className="row">
                 <div className="col">
-                    <h2>{abilityInfo.name}</h2>
+                    <h3>{abilityInfo.name}</h3>
                     {abilityInfo.description}
                 </div>
             </div>
@@ -53,7 +53,7 @@ const championAbilityText = ({abilityInfo}) => {
         return (
             <div className="row">
                 <div className="col">
-                    <h2>{abilityInfo.name}</h2>
+                    <h3>{abilityInfo.name}</h3>
                     {replaceScaling(cleanTooltip(abilityInfo.tooltip))}
                 </div>
             </div>
