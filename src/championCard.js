@@ -1,5 +1,6 @@
 import React from 'react';
 import ChampionAbilities from './championAbilities';
+import ChampionPassive from './championPassive'
 import style from './mystyle.module.css';
 
 
@@ -38,6 +39,8 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
                     <div>
                         Attack Damage: {Math.round(stats.attackdamage)} - {Math.round(stats.attackdamageperlevel * 18 + stats.attackdamage)} ({stats.attackdamageperlevel} per level)
                     </div>
+                    <h2>Passive</h2>
+                    {<ChampionPassive championData={champion}/>}
                     <br/>
                     <h2>Abilities</h2>
                     {/* <div className="row"> */}
