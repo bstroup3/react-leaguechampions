@@ -1,8 +1,8 @@
 
 import React,{ Component } from 'react';
-import ChampionList from './championList'
+import ChampionList from './champion/championList'
 import Axios from 'axios'
-import ChampionCard from './championCard'
+import ChampionCard from './champion/championCard'
 import style from './mystyle.module.css'
 
 const CHAMPION_DATA_URL = 'https://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/champion.json';

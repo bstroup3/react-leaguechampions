@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './mystyle.module.css'
+import style from '../mystyle.module.css'
 export default function champion({champInfo, onChampionClick}) {
   return (
     <div className={style.champ}>

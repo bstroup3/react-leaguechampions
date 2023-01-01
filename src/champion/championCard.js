@@ -1,7 +1,7 @@
 import React from 'react';
-import ChampionAbilities from './championAbilities';
-import ChampionPassive from './championPassive'
-import style from './mystyle.module.css';
+import ChampionAbilities from './abilities/championAbilities';
+import ChampionPassive from './passive/championPassive'
+import style from '../mystyle.module.css';
 
 
 const championCard = ({currentChampionData, onCardClickBack}) => {
@@ -17,6 +17,7 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
     const stats = champion.stats;
     const skins = champion.skins;
     // console.log(skins);
+    console.log(champion)
     return (
         <div className="container">
             <div className={style.champCard}>

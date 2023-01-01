@@ -1,5 +1,4 @@
 import React from "react";
-import champion from "./champion";
 
 const championAbilityText = ({abilityInfo}) => {
     console.log(abilityInfo)

@@ -1,5 +1,5 @@
 import React from "react";
-import style from './mystyle.module.css'
+import style from '../../mystyle.module.css'
 
 const championAbilitiesSplash = (props) => {
     const abilityImages = props.abilities.map((spell, index) => {

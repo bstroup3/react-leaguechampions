@@ -1,6 +1,6 @@
 import React from 'react'
 import Champion from './champion'
-import style from './mystyle.module.css'
+import style from '../mystyle.module.css'
 
 const ChampionList = ({championsData, onChampionClick}) => {
 
