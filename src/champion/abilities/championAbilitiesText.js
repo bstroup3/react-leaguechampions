@@ -1,7 +1,7 @@
 import React from "react";
 
 const championAbilityText = ({abilityInfo}) => {
-    console.log(abilityInfo)
+    //console.log(abilityInfo)
 
     function cleanTooltip(tooltip){
         return tooltip.replace(/(<.*?>)/g, '');
