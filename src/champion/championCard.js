@@ -1,6 +1,7 @@
 import React from 'react';
 import ChampionAbilities from './abilities/championAbilities';
-import ChampionPassive from './passive/championPassive'
+import ChampionPassive from './passive/championPassive';
+import ChampionSkins from './skins/championSkins';
 import style from '../mystyle.module.css';
 
 
@@ -44,9 +45,9 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
                     {<ChampionPassive championData={champion}/>}
                     <br/>
                     <h2>Abilities</h2>
-                    {/* <div className="row"> */}
-                        <ChampionAbilities championData={champion}/>
-                    {/* </div> */}
+                    <ChampionAbilities championData={champion}/>
+
+                    <ChampionSkins championData={champion}/>
                     
                     <button onClick={() => onCardClickBack()} className={style.backButton}>
                         Back
