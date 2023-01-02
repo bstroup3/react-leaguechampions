@@ -21,7 +21,9 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
     return (
         <div className="container">
             <div className={style.champCard}>
-                
+            <button onClick={() => onCardClickBack()} className={style.backTopButton}>
+                        Back to Home
+                    </button>
                 <div className={style.champSplashBorderRight}>
                     <img src={loadingSplashUrl} alt="champion splash" />
                 </div>
@@ -63,9 +65,6 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
                     <br/>
                     <ChampionSkins championData={champion}/>
                     
-                    <button onClick={() => onCardClickBack()} className={style.backButton}>
-                        Back
-                    </button>
                 </div>
                 <div className={style.champSplashBorderLeft}>
                     <img src={loadingSplashUrl} alt="champion splash" />
