@@ -47,7 +47,7 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
                         Attack Damage: {Math.round(stats.attackdamage)} - {Math.round(stats.attackdamageperlevel * 17 + stats.attackdamage)} ({stats.attackdamageperlevel} per level)
                     </div>
                     <div>
-                        Attack Speed: {stats.attackspeed} - {(stats.attackspeedperlevel / 100) * 17 + stats.attackspeed} ({stats.attackspeedperlevel}% per level)
+                        Attack Speed: {stats.attackspeed} - {parseFloat(stats.attackspeedperlevel / 100).toFixed(4) * 17 + stats.attackspeed} ({stats.attackspeedperlevel}% per level)
                     </div>
                     <div>
                         Mana: {stats.mp} - {stats.mpperlevel * 17 + stats.mp} ({stats.mpperlevel} per level)
