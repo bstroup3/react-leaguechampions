@@ -45,6 +45,8 @@ const championAbilityText = ({abilityInfo}) => {
                 <div className="col">
                     <h3>{abilityInfo.name}</h3>
                     <div dangerouslySetInnerHTML={{__html: desc}}/>
+                    <h3>Cooldown</h3>
+                    <div>{abilityInfo.cooldownBurn}</div>
                 </div>
             </div>
         )
