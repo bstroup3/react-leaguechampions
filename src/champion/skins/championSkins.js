@@ -1,3 +1,4 @@
+import { toHaveStyle } from "@testing-library/jest-dom/dist/matchers";
 import React, {Component} from "react";
 import style from '../../mystyle.module.css'
 import ChampionSkinsSplash from './championSkinsSplash'
@@ -21,7 +22,7 @@ class championSkins extends Component {
         return(
             <div>
                 <div>
-                    <ChampionSkinsSplash/>
+                    <ChampionSkinsSplash skins = {this.championData.skins} onSkinClick={this.handleSkinClick} currentSelectedSkin={this.currentSelectedSkin}/>
                     {this.currentSelectedSkin.name}
                 </div>
 
