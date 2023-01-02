@@ -37,7 +37,7 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
                         Starting Health: {stats.hp} - {stats.hpperlevel * 17 + stats.hp} ({stats.hpperlevel} per level)
                     </div>
                     <div>
-                        Armor: {stats.armor} - {stats.armorperlevel * 17 + stats.armor} ({stats.armorperlevel} per level)
+                        Armor: {stats.armor} - {parseFloat(stats.armorperlevel * 17).toFixed(2) + stats.armor} ({stats.armorperlevel} per level)
                     </div>
                     <div>
                         Magic Resist: {stats.spellblock} - {stats.spellblockperlevel * 17 + stats.spellblock} ({stats.spellblockperlevel} per level)
