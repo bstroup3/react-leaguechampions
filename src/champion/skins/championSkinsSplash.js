@@ -3,8 +3,6 @@ import style from '../../mystyle.module.css'
 
 const championSkinsSplash = (props) => {
     const skinImages = props.skins.map((skin, index) => {
-        //console.log(props.skins[1].name)
-        console.log(`ddragon.leagueoflegends.com/cdn/img/champion/splash/${props.championData.name}_${index}.jpg`)
         if(skin === props.currentSkin) {
             return(
                 <div className={style.champSkinSplash} key={skin.id}>
