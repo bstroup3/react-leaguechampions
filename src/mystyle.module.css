@@ -18,7 +18,7 @@
     flex-direction: row-reverse;
     position: absolute;
     width: 50%;
-    margin-left: 25%;
+    margin-left: 24.5%;
 }
 
 .champ:hover{
@@ -88,4 +88,9 @@ body{
     position: fixed;
     right: 0.5%;
     top: 10%;
+}
+
+.champSkinImage{
+    width: 50%;
+    min-width: 50%;
 }
