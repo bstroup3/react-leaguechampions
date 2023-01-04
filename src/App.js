@@ -35,7 +35,7 @@ class App extends Component{
   }
 
   handleChampionClick = (champInfo) => {
-    let championUrl = `http://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/champion/${champInfo.id}.json`
+    let championUrl = `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/champion/${champInfo.id}.json`
     
     Axios.get(championUrl)
     .then(response => {
