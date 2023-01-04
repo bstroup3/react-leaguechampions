@@ -18,7 +18,7 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
     const stats = champion.stats;
     console.log(champion)
     return (
-        <div className="container">
+        <div>
             <div className={style.champCard}>
                     <button onClick={() => onCardClickBack()} className={style.backTopButton}>
                         Back to Home
