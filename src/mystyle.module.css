@@ -103,3 +103,9 @@ body{
     width: 50%;
     min-width: 50%;
 }
+
+.lineRow{
+    background-color: goldenrod;
+    border: none;
+    height: 2px;
+}

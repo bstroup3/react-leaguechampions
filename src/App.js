@@ -3,6 +3,7 @@ import React,{ Component } from 'react';
 import ChampionList from './champion/championList'
 import Axios from 'axios'
 import ChampionCard from './champion/championCard'
+import Header from './header'
 import style from './mystyle.module.css'
 
 const CHAMPION_DATA_URL = 'https://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/champion.json';
@@ -58,16 +59,19 @@ class App extends Component{
     window.scrollTo(0,0)
     if (this.state.currentView === 'champion-card') {
       return (
-        <ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData}/>
-      );
+        <div>
+          <div className="row add-margin-bottom15px">
+            <Header/>
+          </div>
+          <ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData}/>
+        </div>
+       );
     }
 
     return (
       <div className="container">
         <div className="row add-margin-bottom15px">
-          <div className="col">
-            <h1 className={style.header}>League of Legends Champion Viewer </h1>
-          </div>
+          <Header/>
         </div>
         <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} />
       </div>
