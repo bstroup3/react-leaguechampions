@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-leaguechampions/static/css/main.295657df.css",
-    "main.js": "/react-leaguechampions/static/js/main.4729e1e2.js",
+    "main.css": "/react-leaguechampions/static/css/main.e49874c5.css",
+    "main.js": "/react-leaguechampions/static/js/main.82974f22.js",
     "index.html": "/react-leaguechampions/index.html",
-    "main.295657df.css.map": "/react-leaguechampions/static/css/main.295657df.css.map",
-    "main.4729e1e2.js.map": "/react-leaguechampions/static/js/main.4729e1e2.js.map"
+    "main.e49874c5.css.map": "/react-leaguechampions/static/css/main.e49874c5.css.map",
+    "main.82974f22.js.map": "/react-leaguechampions/static/js/main.82974f22.js.map"
   },
   "entrypoints": [
-    "static/css/main.295657df.css",
-    "static/js/main.4729e1e2.js"
+    "static/css/main.e49874c5.css",
+    "static/js/main.82974f22.js"
   ]
 }
