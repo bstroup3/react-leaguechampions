@@ -1,8 +1,6 @@
 .header{
     text-align: center;
     color: goldenrod;
-    position:sticky; 
-    top:0vh;
 }
 
 .champs{
@@ -142,4 +140,10 @@ body{
 .centerBlock{
     display: grid;
     place-items: center;
+}
+
+.stickyHeader{
+    position: sticky;
+    top: 0px;
+    background-color: black;
 }
