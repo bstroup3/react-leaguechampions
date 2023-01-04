@@ -60,9 +60,7 @@ class App extends Component{
     if (this.state.currentView === 'champion-card') {
       return (
         <div>
-          <div className="row add-margin-bottom15px">
-            <Header/>
-          </div>
+          <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack}/>
           <ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData}/>
         </div>
        );
@@ -71,7 +69,7 @@ class App extends Component{
     return (
       <div className="container">
         <div className="row add-margin-bottom15px">
-          <Header/>
+          <Header currentView = {this.state.currentView}/>
         </div>
         <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} />
       </div>
