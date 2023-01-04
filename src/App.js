@@ -59,9 +59,13 @@ class App extends Component{
     window.scrollTo(0,0)
     if (this.state.currentView === 'champion-card') {
       return (
-        <div>
+        <div className='container'>
+          <div>
             <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack}/>
-          <ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData}/>
+          </div>
+          <div>
+            <ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData}/>
+          </div>
         </div>
        );
     }
