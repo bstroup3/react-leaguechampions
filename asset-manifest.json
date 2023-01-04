@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-leaguechampions/static/css/main.295657df.css",
+    "main.js": "/react-leaguechampions/static/js/main.ac70ecc0.js",
+    "index.html": "/react-leaguechampions/index.html",
+    "main.295657df.css.map": "/react-leaguechampions/static/css/main.295657df.css.map",
+    "main.ac70ecc0.js.map": "/react-leaguechampions/static/js/main.ac70ecc0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.295657df.css",
+    "static/js/main.ac70ecc0.js"
+  ]
+}
