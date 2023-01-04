@@ -29,7 +29,7 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
                 <div className="col-8">
                     <div><h1>{champion.name}</h1></div>
                     <div><h2>{champion.title.charAt(0).toUpperCase() + champion.title.slice(1)}</h2></div>
-                    <div>{champion.lore}</div>
+                    <div dangerouslySetInnerHTML={{__html: champion.lore}}/>
                     <br/>
 
                     <h2>Stats</h2>
