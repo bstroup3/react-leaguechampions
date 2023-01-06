@@ -16,6 +16,7 @@ class App extends Component{
     this.state = {
         currentView: "champion-list",
         currentChampionData: '',
+        searchfield: '',
         championsData: []
     }
   }
@@ -55,13 +56,19 @@ class App extends Component{
     })
   }
 
+  onSearchChange = (event) => {
+    console.log(event.target.value)
+    this.setState({searchfield: event.target.value});
+  }
+
+
   render() {
     window.scrollTo(0,0)
     if (this.state.currentView === 'champion-card') {
       return (
         <div className='container'>
           <div>
-            <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack}/>
+            <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.onSearchChange}/>
           </div>
           <div>
             <ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData}/>
@@ -73,9 +80,9 @@ class App extends Component{
     return (
       <div className="container">
         <div className={style.stickyHeader}>
-          <Header currentView = {this.state.currentView}/>
-        </div>
-        <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} />
+          <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.onSearchChange}/>
+        </div>          
+        <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield}/>
       </div>
       
     );

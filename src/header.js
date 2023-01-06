@@ -1,12 +1,12 @@
 import React from "react";
 import style from './mystyle.module.css'
-const header = props => {
-  if(props.currentView === 'champion-card'){
+const header = ({currentView, onCardClickBack, onSearchChange, }) => {
+  if(currentView === 'champion-card'){
     return(
       <div className={style.stickyHeader}>
         <div className={style.centerBlock}>
           <h1 className={style.header}>League of Legends Champion Viewer </h1>
-          <button onClick={() => props.onCardClickBack()} className={style.backHeaderButton}>
+          <button onClick={() => onCardClickBack()} className={style.backHeaderButton}>
             Back to Home
           </button>
         </div>
@@ -19,7 +19,7 @@ const header = props => {
       <div className={style.stickyHeader}>
         <div className={style.centerBlock}>
           <h1 className={style.header}>League of Legends Champion Viewer </h1>
-          <input type="text" placeholder="Search" className={style.SearchBar}/>
+          <input type="search" placeholder="Search Champions" className={style.SearchBar} onChange={onSearchChange}/>
         </div>
         <hr className={style.lineRow}/>
       </div>
