@@ -19,7 +19,6 @@ class championSkins extends Component {
     }
 
     render(){
-        console.log(this.props.championData)
         return(
             <div className="row">
                 <div className="col">

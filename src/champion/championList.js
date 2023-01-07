@@ -4,7 +4,7 @@ import style from '../mystyle.module.css'
 
 
 
-class TESTchampionList extends Component{
+class championList extends Component{
     constructor(props){
         super(props)
 
@@ -15,7 +15,6 @@ class TESTchampionList extends Component{
 
     render() {
         const ChampionListItems = this.props.championsData.sort((a,b) => a.name > b.name ? 1 : -1).map((champion) => {
-            console.log(this.props.searchfield)
             if((champion.name.toLowerCase()).includes(this.props.searchfield.toLowerCase())){
                 return <Champion onChampionClick={this.props.onChampionClick} key={champion.name}
                     champInfo={champion} />
@@ -32,4 +31,4 @@ class TESTchampionList extends Component{
 }
 
 
-export default TESTchampionList;
+export default championList;
