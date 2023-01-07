@@ -17,11 +17,8 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
     const loadingSplashUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`
     const stats = champion.stats;
     return (
-        <div>
+        <>
             <div className={style.champCard}>
-                    <button onClick={() => onCardClickBack()} className={style.backTopButton}>
-                        Back to Home
-                    </button>
                 <div className={style.champSplashBorderRight}>
                     <img className={style.champBorderingImage} src={loadingSplashUrl} alt="champion splash" />
                 </div>
@@ -68,7 +65,7 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
                     <img className={style.champBorderingImage} src={loadingSplashUrl} alt="champion splash" />
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

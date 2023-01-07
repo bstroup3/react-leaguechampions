@@ -108,17 +108,16 @@ body{
     width: 20%;
     display: block;
     position: fixed;
-
     top: 20%;
 }
 
 .champCard{
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     text-align: center;
     flex-direction: row-reverse;
-    position: absolute;
+
     width: 50%;
     margin-left: 24.5%;
 }
@@ -150,4 +149,14 @@ body{
     position: sticky;
     top: 0px;
     background-color: black;
+}
+
+.MainHeader {
+    border: solid Green;
+    height: auto;
+}
+
+.container{
+    display: grid;
+
 }
