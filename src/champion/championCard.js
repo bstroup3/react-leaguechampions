@@ -16,6 +16,8 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
 
     const loadingSplashUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`
     const stats = champion.stats;
+    console.log(stats.attackspeedperlevel)
+    console.log(champion)
     return (
         <>
             <div className={style.champCard}>
@@ -30,22 +32,22 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
 
                     <h2>Stats</h2>
                     <div>
-                        Starting Health: {stats.hp} - {stats.hpperlevel * 17 + stats.hp} ({stats.hpperlevel} per level)
+                        Starting Health: {stats.hp} - {Math.round(stats.hpperlevel * 17 * 10000)/10000 + stats.hp} ({stats.hpperlevel} per level)
                     </div>
                     <div>
-                        Armor: {stats.armor} - {parseFloat(stats.armorperlevel * 17).toFixed(2) + stats.armor} ({stats.armorperlevel} per level)
+                        Armor: {stats.armor} - {Math.round(stats.armorperlevel * 17 * 10000)/10000 + stats.armor} ({stats.armorperlevel} per level)
                     </div>
                     <div>
-                        Magic Resist: {stats.spellblock} - {stats.spellblockperlevel * 17 + stats.spellblock} ({stats.spellblockperlevel} per level)
+                        Magic Resist: {stats.spellblock} - {Math.round(stats.spellblockperlevel * 17 * 10000)/10000 + stats.spellblock} ({stats.spellblockperlevel} per level)
                     </div>
                     <div>
-                        Attack Damage: {Math.round(stats.attackdamage)} - {Math.round(stats.attackdamageperlevel * 17 + stats.attackdamage)} ({stats.attackdamageperlevel} per level)
+                        Attack Damage: {Math.round(stats.attackdamage)} - {Math.round(stats.attackdamageperlevel * 17 * 10000 + stats.attackdamage)/10000} ({stats.attackdamageperlevel} per level)
                     </div>
                     <div>
-                        Attack Speed: {stats.attackspeed} - {parseFloat(stats.attackspeedperlevel / 100).toFixed(4) * 17 + stats.attackspeed} ({stats.attackspeedperlevel}% per level)
+                        Attack Speed: {stats.attackspeed} - {parseFloat(Math.round((stats.attackspeedperlevel / 100) * 17 * 10000)/10000 + stats.attackspeed).toFixed(4)} ({stats.attackspeedperlevel}% per level)
                     </div>
                     <div>
-                        Mana: {stats.mp} - {stats.mpperlevel * 17 + stats.mp} ({stats.mpperlevel} per level)
+                        Mana: {stats.mp} - {parseFloat(stats.mpperlevel * 17) + stats.mp} ({stats.mpperlevel} per level)
                     </div>
                     <div>
                         Movement Speed: {stats.movespeed}
