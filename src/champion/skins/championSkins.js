@@ -19,6 +19,7 @@ class championSkins extends Component {
     }
 
     render(){
+        console.log(this.state.currentSelectedSkin)
         return(
             <div className="row">
                 <div className="col">

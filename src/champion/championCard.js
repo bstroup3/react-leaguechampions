@@ -16,8 +16,6 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
 
     const loadingSplashUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`
     const stats = champion.stats;
-    console.log(stats.attackspeedperlevel)
-    console.log(champion)
     return (
         <>
             <div className={style.champCard}>
