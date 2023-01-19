@@ -5,7 +5,7 @@ import ChampionSkins from './skins/championSkins';
 import style from '../mystyle.module.css';
 
 
-const championCard = ({currentChampionData, onCardClickBack}) => {
+const championCard = ({currentChampionData, onCardClickBack, version}) => {
     let champion = currentChampionData;
     if (!currentChampionData) {
         return (
@@ -52,13 +52,13 @@ const championCard = ({currentChampionData, onCardClickBack}) => {
                     </div>
 
                     <h2>Passive</h2>
-                    {<ChampionPassive championData={champion}/>}
+                    {<ChampionPassive championData={champion} version={version}/>}
                     <br/>
                     <h2>Abilities</h2>
-                    <ChampionAbilities championData={champion}/>
+                    <ChampionAbilities championData={champion} version={version}/>
                     <h2>Skins</h2>
                     <br/>
-                    <ChampionSkins championData={champion}/>
+                    <ChampionSkins championData={champion} version={version}/>
                     
                 </div>
                 <div className={style.champSplashBorderLeft}>

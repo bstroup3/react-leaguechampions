@@ -23,7 +23,7 @@ class championAbilities extends Component {
             <div className='col'>
             <ChampionAbilitiesSplash onAbilityClick={this.handleAbilityClick} 
                 currentAbility={this.state.currentSelectedAbility}
-                abilities={this.props.championData.spells} />
+                abilities={this.props.championData.spells} version={this.props.version}/>
             <ChampionAbilityText abilityInfo={this.state.currentSelectedAbility}/>
             </div>
         </div>

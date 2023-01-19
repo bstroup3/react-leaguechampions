@@ -17,8 +17,13 @@ class championList extends Component{
         const ChampionListItems = this.props.championsData.sort((a,b) => a.name > b.name ? 1 : -1).map((champion) => {
             if((champion.name.toLowerCase()).includes(this.props.searchfield.toLowerCase())){
                 return <Champion onChampionClick={this.props.onChampionClick} key={champion.name}
-                    champInfo={champion} />
-                }
+                    champInfo={champion} version={this.props.version}/>
+            }
+            else{
+                return(
+                    <div></div>
+                )
+            }
         })
 
         return(

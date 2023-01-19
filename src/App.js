@@ -6,8 +6,6 @@ import ChampionCard from './champion/championCard'
 import Header from './header'
 import style from './mystyle.module.css'
 
-const CHAMPION_DATA_URL = 'https://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/champion.json';
-
 class App extends Component{
 
   constructor(props){
@@ -17,11 +15,15 @@ class App extends Component{
         currentView: "champion-list",
         currentChampionData: '',
         searchfield: '',
-        championsData: []
+        championsData: [],
+        version: ''
     }
   }
 
-  componentDidMount() {
+  axiosCalls() {
+    const CHAMPION_DATA_URL = `https://ddragon.leagueoflegends.com/cdn/${this.state.version}/data/en_US/champion.json`;
+    console.log(CHAMPION_DATA_URL)
+
     Axios.get(CHAMPION_DATA_URL)
     .then(response => {
       let championsData = []
@@ -36,8 +38,32 @@ class App extends Component{
     })
   }
 
+  getVersion() {
+    const versionURL = 'https://ddragon.leagueoflegends.com/api/versions.json'
+  
+       Axios.get(versionURL)
+        .then(async response => {
+          let versionVar = response.data[0]
+          this.setState({ version: versionVar  }, () => {console.log("new state: " + this.state.version)})
+        })
+        .catch(e=> {console.log(e)})
+  }
+  
+   componentDidMount() {
+    const promise1 = new Promise((resolve) => {
+      this.getVersion()
+      setTimeout(() => {resolve('Success')},100)
+    })
+    promise1.then((value) => {
+      if(value === 'Success'){
+        this.axiosCalls()
+      }
+    }).catch(e => {console.log(e)})
+    
+  }
+
   handleChampionClick = (champInfo) => {
-    let championUrl = `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/champion/${champInfo.id}.json`
+    let championUrl = `https://ddragon.leagueoflegends.com/cdn/${this.state.version}/data/en_US/champion/${champInfo.id}.json`
     
     Axios.get(championUrl)
     .then(response => {
@@ -69,7 +95,7 @@ class App extends Component{
           <div className={style.stickyHeader}>
             <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.onSearchChange}/>
           </div>   
-          <ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData} className={style.champCard}/>
+          <ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData} className={style.champCard} version={this.state.version}/>
         </div>
        );
     }
@@ -79,7 +105,7 @@ class App extends Component{
         <div className={style.stickyHeader}>
           <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.onSearchChange}/>
         </div>          
-        <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield}/>
+        <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} version={this.state.version}/>
       </div>
       
     );
