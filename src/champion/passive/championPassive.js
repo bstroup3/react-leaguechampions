@@ -6,8 +6,6 @@ import style from '../../mystyle.module.css'
 const championPassive = (championData, version) => {
     const passive = championData.championData.passive
     const desc = passive.description
-    console.log(`http://ddragon.leagueoflegends.com/cdn/${championData.version}/img/passive/${passive.image.full}`)
-    console.log(championData.version)
     return(
         <div>
             <h3>{passive.name}</h3>
