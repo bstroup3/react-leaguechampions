@@ -13,7 +13,7 @@ const championCard = ({currentChampionData, onCardClickBack, version}) => {
         )
     }
 
-
+    console.log(champion)
     const loadingSplashUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`
     const stats = champion.stats;
     return (

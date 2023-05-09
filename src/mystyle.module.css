@@ -63,6 +63,10 @@
     border-radius: 10px;
 }
 
+.championSquare{
+    width: 100%;
+}
+
 .champ:hover{
     transition: 0.5s;
     background: gray;
@@ -78,6 +82,7 @@
 body{
     background-color: black;
     color: goldenrod;
+    font-family: 'Spiegel, "Arial Narrow", Arial, sans-serif';
 }
 
 .champSplash{
