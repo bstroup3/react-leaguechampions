@@ -59,6 +59,7 @@
 .champ{
     display: grid;
     width: fit-content;
+    min-width: 12%;
     margin: 20px;
     border: 1px solid black;
     background-color: white;
