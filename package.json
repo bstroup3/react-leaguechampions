@@ -2,7 +2,7 @@
   "name": "react-leaguechampions",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://bstroup3.github.io/react-leaguechampions",
+  "homepage": "https://bstroup3.github.io/react-leaguechampions",
   "dependencies": {
     "-": "0.0.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -18,7 +18,7 @@
   "scripts": {
     "start": "PORT=3005 react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b master -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
