@@ -3,7 +3,7 @@ import style from '../mystyle.module.css'
 export default function champion({champInfo, onChampionClick, version}) {
   return (
     <div className={style.champ}>
-        <div className="champion-list-element" onClick={() => onChampionClick(champInfo)}>
+        <div className={style.champListBox} onClick={() => onChampionClick(champInfo)}>
             <img className={style.championSquare} src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champInfo.image.full}`}
             alt={champInfo.name + " picture"} />
             <p className={style.champName}>{champInfo.name.toUpperCase()}</p>

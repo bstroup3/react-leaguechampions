@@ -11,7 +11,9 @@
     justify-content: center;
 }
 
-
+.champListBox{
+    width: 100%;
+}
 
 .backTopButton{
     display: block;
@@ -56,7 +58,7 @@
 
 .champ{
     display: grid;
-    width: fit-content;
+    width: 10%;
     margin: 20px;
     border: 1px solid black;
     background-color: white;
