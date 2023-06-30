@@ -3,12 +3,10 @@ import React,{ Component } from 'react';
 import ChampionList from './champion/championList'
 import Axios from 'axios'
 import ChampionCard from './champion/championCard'
-import Header from './headers/championListHeader'
 import style from './mystyle.module.css'
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Home from "./home/home"
 import ItemList from "./items/itemList"
-import champion from './champion/champion';
 
 class App extends Component{
 
@@ -16,8 +14,6 @@ class App extends Component{
     super(props)
 
     this.state = {
-        currentView: "champion-list",
-        currentChampionData: '',
         searchfield: '',
         championsData: [],
         itemsData: [],
@@ -87,7 +83,6 @@ class App extends Component{
     .then(response => {
       this.setState({
         currentChampionData: response.data.data[champInfo.id],
-        currentView: 'champion-card'
       })
     })
   }
@@ -100,14 +95,6 @@ class App extends Component{
       this.setState({
         currentItemData: response.data.data[itemInfo.id]
       })
-    })
-  }
-
-
-  handleCardClickBack = () => {
-    this.setState({
-      currentView: 'champion-list',
-      currentChampionData: ''
     })
   }
 
