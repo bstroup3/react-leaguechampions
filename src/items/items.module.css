@@ -16,15 +16,20 @@
     border-radius: 10px;
 }
 .itemListBox{
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+    width: 145.48px;
+    justify-content: center;
 }
 .itemSquare{
-    width: 100%;
+    width: 145.48px;
 }
 .itemName{
     color: rgb(0, 0, 0);
     font-weight: Bold;
-    margin: 10px;
+    width: 145.48px;
+    text-align: center;
 }
 .items{
     display: flex;
