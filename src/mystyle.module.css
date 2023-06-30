@@ -125,7 +125,6 @@ body{
     justify-content: center;
     text-align: center;
     flex-direction: row-reverse;
-
     width: 50%;
     margin-left: 24.5%;
 }
@@ -167,4 +166,26 @@ body{
 .container{
     display: grid;
 
+}
+.homeButton{
+    display: flex;
+    background: goldenrod;
+    border: 0;
+    border-radius: 5px;
+    width: 80px;
+    height: 38px;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    margin: 1%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.homeButton:hover{
+    cursor: pointer;
+    background: rgb(117, 88, 15);
+    transition: 0.5s;
 }

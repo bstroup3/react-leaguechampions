@@ -3,8 +3,12 @@ import React,{ Component } from 'react';
 import ChampionList from './champion/championList'
 import Axios from 'axios'
 import ChampionCard from './champion/championCard'
-import Header from './header'
+import Header from './headers/championListHeader'
 import style from './mystyle.module.css'
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import Home from "./home/home"
+import ItemList from "./items/itemList"
+import champion from './champion/champion';
 
 class App extends Component{
 
@@ -16,13 +20,14 @@ class App extends Component{
         currentChampionData: '',
         searchfield: '',
         championsData: [],
+        itemsData: [],
         version: ''
     }
   }
 
   axiosCalls() {
     const CHAMPION_DATA_URL = `https://ddragon.leagueoflegends.com/cdn/${this.state.version}/data/en_US/champion.json`;
-    console.log(CHAMPION_DATA_URL)
+    const ITEM_DATA_URL = `https://ddragon.leagueoflegends.com/cdn/${this.state.version}/data/en_US/item.json`;
 
     Axios.get(CHAMPION_DATA_URL)
     .then(response => {
@@ -32,6 +37,19 @@ class App extends Component{
       }
       //put champ data into the state
       this.setState({championsData: championsData});
+    })
+    .catch(e =>{
+      console.log(e);
+    })
+
+    Axios.get(ITEM_DATA_URL)
+    .then(response => {
+      let itemsData = []
+      for (let key in response.data.data){
+        itemsData.push(response.data.data[key]);
+      }
+      //put champ data into the state
+      this.setState({itemsData: itemsData});
     })
     .catch(e =>{
       console.log(e);
@@ -72,8 +90,19 @@ class App extends Component{
         currentView: 'champion-card'
       })
     })
-    
   }
+
+  handleItemClick = (itemInfo) => {
+    let ItemUrl = `https://ddragon.leagueoflegends.com/cdn/${this.state.version}/data/en_US/item/${itemInfo.id}.json`
+    
+    Axios.get(ItemUrl)
+    .then(response => {
+      this.setState({
+        currentItemData: response.data.data[itemInfo.id]
+      })
+    })
+  }
+
 
   handleCardClickBack = () => {
     this.setState({
@@ -89,26 +118,17 @@ class App extends Component{
 
   render() {
     window.scrollTo(0,0)
-    if (this.state.currentView === 'champion-card') {
-      return (
-        <div className={style.container}>
-          <div className={style.stickyHeader}>
-            <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.onSearchChange}/>
-          </div>   
-          <ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData} className={style.champCard} version={this.state.version}/>
-        </div>
-       );
-    }
 
-    return (
-      <div className="container">
-        <div className={style.stickyHeader}>
-          <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.onSearchChange}/>
-        </div>          
-        <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} version={this.state.version}/>
-      </div>
-      
-    );
+    return(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/champions" element={<ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
+          <Route path="/champions/:currentChampionData" element={<ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData} className={style.champCard} version={this.state.version}/>} />
+          <Route path="/items" element={<ItemList onItemClick={this.handleItemClick} itemsData={this.state.itemsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
+        </Routes>
+      </BrowserRouter>
+    )
   }
 }
 

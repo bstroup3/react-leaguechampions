@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Champion from './champion'
 import style from '../mystyle.module.css'
+import Header from '../headers/championListHeader'
 
 
 
@@ -27,8 +28,13 @@ class championList extends Component{
         })
 
         return(
-            <div className={style.champs}>
-                {ChampionListItems}
+            <div className={style.container}>
+                <div className={style.stickyHeader}>
+                <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.onSearchChange}/>
+                </div>
+                <div className={style.champs}>
+                    {ChampionListItems}
+                </div>
             </div>
         )
     }
