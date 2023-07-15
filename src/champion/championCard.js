@@ -4,7 +4,6 @@ import ChampionPassive from './passive/championPassive';
 import ChampionSkins from './skins/championSkins';
 import style from '../mystyle.module.css';
 import Axios from 'axios';
-import championPassive from './passive/championPassive';
 
 
 export default function ChampionCard()
