@@ -111,7 +111,7 @@ class App extends Component{
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/champions" element={<ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
-          <Route path="/champions/:currentChampionData" element={<ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData} className={style.champCard} version={this.state.version}/>} />
+          <Route path="/champions/:currentChampionData" element={<ChampionCard/>} />
           <Route path="/items" element={<ItemList onItemClick={this.handleItemClick} itemsData={this.state.itemsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
         </Routes>
       </BrowserRouter>
