@@ -2,7 +2,7 @@
   "name": "react-leaguechampions",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bstroup3.github.io/react-leaguechampions",
+  "homepage": "https://bstroup3.github.io",
   "proxy": "http://localhost:3005",
   "dependencies": {
     "-": "0.0.1",
