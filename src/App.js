@@ -4,7 +4,7 @@ import ChampionList from './champion/championList'
 import Axios from 'axios'
 import ChampionCard from './champion/championCard'
 import style from './mystyle.module.css'
-import {BrowserRouter, Route, Routes, IndexRoute} from "react-router-dom"
+import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Home from "./home/home"
 import ItemList from "./items/itemList"
 
@@ -109,7 +109,7 @@ class App extends Component{
     return(
       <BrowserRouter>
         <Routes>
-          <IndexRoute path="/" element={<Home/>} />
+          <Route path="/" element={<Home/>} />
           <Route path="/champions" element={<ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
           <Route path="/champions/:currentChampionData" element={<ChampionCard/>} />
           <Route path="/items" element={<ItemList onItemClick={this.handleItemClick} itemsData={this.state.itemsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
