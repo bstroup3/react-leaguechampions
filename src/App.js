@@ -4,7 +4,7 @@ import ChampionList from './champion/championList'
 import Axios from 'axios'
 import ChampionCard from './champion/championCard'
 import style from './mystyle.module.css'
-import {BrowserRouter, Route, Routes, redirect as Redirect, Outlet} from "react-router-dom"
+import {RouterProvider, createBrowserRouter} from "react-router-dom"
 import Home from "./home/home"
 import ItemList from "./items/itemList"
 
@@ -106,18 +106,26 @@ class App extends Component{
   render() {
     window.scrollTo(0,0);
     console.log("what is going on");
+    const router = createBrowserRouter([
+      {
+        path: "/",
+        element: <Home/>,
+      },
+      {
+          path: "/champions",
+          element: <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} version={this.state.version}/>
+      },
+      {
+        path: "/champions/:currentChampionData",
+        element: <ChampionCard/>
+      },
+      {
+        path: "/items",
+        element: <ItemList onItemClick={this.handleItemClick} itemsData={this.state.itemsData} searchfield={this.state.searchfield} version={this.state.version}/>
+      }
+    ]);
     return(
-      <>
-      <Outlet/>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/champions" element={<ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
-            <Route path="/champions/:currentChampionData" element={<ChampionCard/>} />
-            <Route path="/items" element={<ItemList onItemClick={this.handleItemClick} itemsData={this.state.itemsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
-          </Routes>
-        </BrowserRouter>
-      </>
+      <RouterProvider router={router}/>
     )
   }
 }
