@@ -14,7 +14,9 @@ class itemList extends Component{
     render() {
         const ItemListItems = this.props.itemsData.filter(
             (item) => (item.inStore != false) && 
-            (item.maps['11'] == true)).sort((a,b) => a.gold.total > b.gold.total ? 1 : -1).map((item) => {
+            (item.maps['11'] == true) &&
+            (item.requiredChampion != "Sylas"))
+            .sort((a,b) => a.gold.total > b.gold.total ? 1 : -1).map((item) => {
             if((item.name.toLowerCase()).includes(this.props.searchfield.toLowerCase())){
                 return <Item onItemClick={this.props.onItemClick} key={item.name}
                     itemInfo={item} version={this.props.version}/>
