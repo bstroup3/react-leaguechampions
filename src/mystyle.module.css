@@ -190,3 +190,7 @@ body{
     background: rgb(117, 88, 15);
     transition: 0.5s;
 }
+
+.headerName{
+    font-size: 300%;
+}

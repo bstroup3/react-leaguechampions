@@ -4,8 +4,7 @@ import ChampionPassive from './passive/championPassive';
 import ChampionSkins from './skins/championSkins';
 import style from '../mystyle.module.css';
 import Axios from 'axios';
-import {Link} from 'react-router-dom'
-
+import ChampionHeader from '../headers/championHeader'
 
 export default function ChampionCard()
 {
@@ -46,14 +45,14 @@ export default function ChampionCard()
         const stats = champion.stats
          return (
                 <>
-                    <Link className={style.homeButton} to="/react-leaguechampions/champions">Back</Link>
                     <div className={style.champCard}>
                         <div className={style.champSplashBorderRight}>
                             <img className={style.champBorderingImage} src={loadingSplashUrl} alt="champion splash" />
                         </div>
                         <div className="col-8">
-                            <div><h1>{champion.name}</h1></div>
-                            <div><h2>{champion.title.charAt(0).toUpperCase() + champion.title.slice(1)}</h2></div>
+                            {/* <div><h1>{champion.name}</h1></div>
+                            <div><h2>{champion.title.charAt(0).toUpperCase() + champion.title.slice(1)}</h2></div> */}
+                            <ChampionHeader champion={champion}/>
                             <div dangerouslySetInnerHTML={{__html: champion.lore}}/>
                             <br/>
         
