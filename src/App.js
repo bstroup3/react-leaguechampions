@@ -122,6 +122,10 @@ class App extends Component{
       {
         path: "/items",
         element: <ItemList onItemClick={this.handleItemClick} itemsData={this.state.itemsData} searchfield={this.state.searchfield} version={this.state.version}/>
+      },
+      {
+        path: "/react-leaguechampions",
+        element: <div>Get Fucked Loser</div>
       }
     ]);
     return(
