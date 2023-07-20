@@ -104,17 +104,20 @@ class App extends Component{
 
 
   render() {
-    window.scrollTo(0,0)
-    console.log("what is going on")
+    window.scrollTo(0,0);
+    console.log("what is going on");
     return(
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/champions" element={<ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
-          <Route path="/champions/:currentChampionData" element={<ChampionCard/>} />
-          <Route path="/items" element={<ItemList onItemClick={this.handleItemClick} itemsData={this.state.itemsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
-        </Routes>
-      </BrowserRouter>
+      <>
+        <h1>What The Fuck Is Going On?</h1>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/champions" element={<ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
+            <Route path="/champions/:currentChampionData" element={<ChampionCard/>} />
+            <Route path="/items" element={<ItemList onItemClick={this.handleItemClick} itemsData={this.state.itemsData} searchfield={this.state.searchfield} version={this.state.version}/>} />
+          </Routes>
+        </BrowserRouter>
+      </>
     )
   }
 }
