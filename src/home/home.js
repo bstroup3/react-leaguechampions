@@ -10,8 +10,8 @@ export default function home(){
             <h1 className={style.HomeTitle}>Welcome to my League Of Legends Resource Website!</h1>
             <img src={Logo} alt="LOL Logo"/>
             <div className={style.Options}>
-                <Link className={style.button} to="react-leaguechampions/champions">View Champions</Link>
-                <Link className={style.button} to="react-leaguechampions//items">View Items</Link>
+                <Link className={style.button} to="/react-leaguechampions/champions">View Champions</Link>
+                <Link className={style.button} to="/react-leaguechampions/items">View Items</Link>
             </div>
         </div>
     )
