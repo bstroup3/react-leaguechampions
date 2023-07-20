@@ -104,8 +104,12 @@ class itemList extends Component{
             },
             {
                 tag: 'NonbootsMovement',
-                name: 'Speed'
+                name: 'Movement Speed'
             },
+            {
+                tag: 'Boots',
+                name: 'Boots'
+            }
         ]
 
         const ItemListItems = this.props.itemsData.filter(
