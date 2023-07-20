@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.towa{
+    width: 40%;
+    height: 40%;
+}
+.homeButton{
+    display: flex;
+    background: goldenrod;
+    border: 0;
+    border-radius: 5px;
+    width: 80px;
+    height: 38px;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    margin: 1%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
