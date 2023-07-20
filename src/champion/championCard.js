@@ -8,15 +8,16 @@ import Axios from 'axios';
 
 export default function ChampionCard()
 {
-    const loadingSplashUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${window.location.pathname.split('/')[window.location.pathname.split('/').length-1]}_0.jpg`
+    const loadingSplashUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${window.location.pathname.split('/')[window.location.pathname.split('/').length-1].replaceAll("%20", "")}_0.jpg`
     const [Champion, setChampion] = useState()
     const [version, setVersion] = useState("")
 
+    console.log(window.location.pathname.split('/')[window.location.pathname.split('/').length-1].replaceAll("%20", ""))
     function fetchData() {
         Axios.get('https://ddragon.leagueoflegends.com/api/versions.json')
         .then(response => {
         setVersion(response.data[0])
-        Axios.get(`https://ddragon.leagueoflegends.com/cdn/${response.data[0]}/data/en_US/champion/${window.location.pathname.split('/')[window.location.pathname.split('/').length-1]}.json`)
+        Axios.get(`https://ddragon.leagueoflegends.com/cdn/${response.data[0]}/data/en_US/champion/${window.location.pathname.split('/')[window.location.pathname.split('/').length-1].replaceAll("%20", "")}.json`)
         .then(response => {
         setChampion(response.data.data)
         })
@@ -40,7 +41,7 @@ export default function ChampionCard()
         )
     }
     else{
-        const champion = Champion[`${window.location.pathname.split('/')[window.location.pathname.split('/').length-1]}`]
+        const champion = Champion[`${window.location.pathname.split('/')[window.location.pathname.split('/').length-1].replaceAll("%20", "")}`]
         const stats = champion.stats
          return (
                 <>
