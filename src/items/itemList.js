@@ -12,7 +12,7 @@ class itemList extends Component{
         }
     }
     render() {
-        const ItemListItems = this.props.itemsData.map((item) => {
+        const ItemListItems = this.props.itemsData.filter((item) => item.inStore != false).map((item) => {
             if((item.name.toLowerCase()).includes(this.props.searchfield.toLowerCase())){
                 return <Item onItemClick={this.props.onItemClick} key={item.name}
                     itemInfo={item} version={this.props.version}/>
