@@ -4,7 +4,7 @@ import ChampionList from './champion/championList'
 import Axios from 'axios'
 import ChampionCard from './champion/championCard'
 import style from './mystyle.module.css'
-import {BrowserRouter, Route, Routes} from "react-router-dom"
+import {BrowserRouter, Route, Routes, redirect as Redirect, Outlet} from "react-router-dom"
 import Home from "./home/home"
 import ItemList from "./items/itemList"
 
@@ -108,7 +108,7 @@ class App extends Component{
     console.log("what is going on");
     return(
       <>
-        <h1>What The Fuck Is Going On?</h1>
+      <Outlet/>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home/>} />
