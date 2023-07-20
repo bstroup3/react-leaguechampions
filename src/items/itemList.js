@@ -11,7 +11,103 @@ class itemList extends Component{
 
         }
     }
+
     render() {
+        const tags = [
+            {
+                tag: 'Damage',
+                name: 'Attack Damage'
+            },
+            {
+                tag: 'SpellDamage',
+                name: 'Ability Power'
+            },
+            {
+                tag: 'SpellBlock',
+                name: 'Magic Resist'
+            },
+            {
+                tag: 'Armor',
+                name: 'Armor'
+            },
+            {
+                tag: 'Health',
+                name: 'Health'
+            },
+            {
+                tag: 'Tenacity',
+                name: 'Tenacity'
+            },
+            {
+                tag: 'Trinket',
+                name: 'Trinket'
+            },
+            {
+                tag: 'HealthRegen',
+                name: 'Health Regen'
+            },
+            {
+                tag: 'ManaRegen',
+                name: 'Mana Regen'
+            },
+            {
+                tag: 'Mana',
+                name: 'Mana'
+            },
+            {
+                tag: 'OnHit',
+                name: 'On Hit'
+            },
+            {
+                tag: 'AttackSpeed',
+                name: 'Attack Speed'
+            },
+            {
+                tag: 'CriticalStrike',
+                name: 'Critical Strike'
+            },
+            {
+                tag: 'MagicPenetration',
+                name: 'Magic Penetration'
+            },
+            {
+                tag: 'ArmorPenetration',
+                name: 'Armor Penetration'
+            },
+            {
+                tag: 'CooldownReduction',
+                name: 'Cooldown Reduction'
+            },
+            {
+                tag: 'Lane',
+                name: 'Starter Items'
+            },
+            {
+                tag: 'AbilityHaste',
+                name: 'Ability Haste'
+            },
+            {
+                tag: 'LifeSteal',
+                name: 'Life Steal'
+            },
+            {
+                tag: 'SpellVamp',
+                name: 'Spell Vamp'
+            },
+            {
+                tag: 'Consumable',
+                name: 'Consumable'
+            },
+            {
+                tag: 'Active',
+                name: 'Active'
+            },
+            {
+                tag: 'NonbootsMovement',
+                name: 'Speed'
+            },
+        ]
+
         const ItemListItems = this.props.itemsData.filter(
             (item) => (item.inStore != false) && 
             (item.maps['11'] == true) &&
@@ -27,7 +123,6 @@ class itemList extends Component{
                 )
             }
         })
-        console.log(this.props.itemsData)
         return(
             <div className={style.container}>
                 <div className={style.stickyHeader}>
@@ -35,13 +130,18 @@ class itemList extends Component{
                 </div>
                 <div>
                 {
-                    ItemListItems.map((item) => {
-                        console.log(item.props.itemInfo)
+                    tags.map((tag) =>{
+                        const filteredItems = ItemListItems.filter((item) => (item.props.itemInfo.tags.indexOf(tag.tag) > -1))//.sort((item1,item2) => item1.gold < item2.gold ? 1 : -1)
+                        return( 
+                            <>
+                            <h1 className={style.tagHeader}>{tag.name}</h1>
+                            <div className={style.items}>
+                                {filteredItems}
+                            </div>
+                            </>
+                        )
                     })
                 }
-                </div>
-                <div className={style.items}>
-                    {ItemListItems}
                 </div>
             </div>
         )
