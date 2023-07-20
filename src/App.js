@@ -108,24 +108,20 @@ class App extends Component{
     console.log("what is going on");
     const router = createBrowserRouter([
       {
-        path: "/",
+        path: "/react-leaguechampions/",
         element: <Home/>,
       },
       {
-          path: "/champions",
+          path: "/react-leaguechampions/champions",
           element: <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} version={this.state.version}/>
       },
       {
-        path: "/champions/:currentChampionData",
+        path: "/react-leaguechampions/champions/:currentChampionData",
         element: <ChampionCard/>
       },
       {
-        path: "/items",
+        path: "/react-leaguechampions/items",
         element: <ItemList onItemClick={this.handleItemClick} itemsData={this.state.itemsData} searchfield={this.state.searchfield} version={this.state.version}/>
-      },
-      {
-        path: "/react-leaguechampions",
-        element: <div>Get Fucked Loser</div>
       }
     ]);
     return(
