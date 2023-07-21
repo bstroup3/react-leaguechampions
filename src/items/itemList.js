@@ -118,7 +118,7 @@ class itemList extends Component{
             (item.requiredChampion != "Sylas"))
             .sort((a,b) => a.gold.total > b.gold.total ? 1 : -1).map((item) => {
             if((item.name.toLowerCase()).includes(this.props.searchfield.toLowerCase())){
-                return <Item onItemClick={this.props.onItemClick} key={item.name}
+                return <Item key={item.name}
                     itemInfo={item} version={this.props.version}/>
             }
             else{
@@ -135,7 +135,7 @@ class itemList extends Component{
                 <div>
                 {
                     tags.map((tag) =>{
-                        const filteredItems = ItemListItems.filter((item) => (item.props.itemInfo.tags.indexOf(tag.tag) > -1))//.sort((item1,item2) => item1.gold < item2.gold ? 1 : -1)
+                        const filteredItems = ItemListItems.filter((item) => (item.props.itemInfo.tags.indexOf(tag.tag) > -1))
                         return( 
                             <>
                             <h1 className={style.tagHeader}>{tag.name}</h1>

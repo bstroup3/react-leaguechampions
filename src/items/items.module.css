@@ -20,16 +20,23 @@
     flex-direction: column;
     width: 145.48px;
     justify-content: center;
+    text-decoration: none;
 }
 .itemSquare{
     width: 145.48px;
 }
 .itemName{
+    display: flex;
     color: rgb(0, 0, 0);
     font-weight: Bold;
     width: 145.48px;
     text-align: center;
     font-size: small;
+    min-height: 31px;
+    max-height: 31px;
+    margin: 0%;
+    align-items: center;
+    justify-content: center;
 }
 .items{
     display: flex;
@@ -41,3 +48,14 @@
 .tagHeader{
     text-align: center;
 }
+.itemHeader{
+    text-align: center;
+    font-size: 300%;
+}
+.likes__list{
+    position:absolute;
+    box-sizing: border-box;
+    width: 145.48px;
+    background:White;
+    color: black;
+  }
