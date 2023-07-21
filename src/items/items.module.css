@@ -63,7 +63,5 @@
     background:Black;
     opacity: 80%;
     text-decoration: none;
-  }
-/* .like__list:hover{
-    height: 145.48;
-} */
+    color: goldenrod;
+}

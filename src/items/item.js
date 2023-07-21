@@ -72,9 +72,8 @@ export default function Item({itemInfo, version}) {
         }
       }
     }
-    return setLikeList(`Stats:<br>Gold: ${itemInfo.gold.total}<br>${stats}`)
+    return setLikeList(`Gold: ${itemInfo.gold.total}<br>Stats:<br>${stats}`)
   }
-  //console.log(itemInfo.stats)
   if(likeList == ""){
     return (
       <>
@@ -84,9 +83,6 @@ export default function Item({itemInfo, version}) {
                 alt={itemInfo.name + " picture"} />
                 <p className={style.itemName} dangerouslySetInnerHTML={{__html: itemInfo.name.toUpperCase()}}></p>
             </Link>
-            {/* <div className={style.likes__list}>
-              {likeList}
-            </div> */}
           </div>
       </>
     );
@@ -100,7 +96,7 @@ export default function Item({itemInfo, version}) {
                 alt={itemInfo.name + " picture"} />
                 <p className={style.itemName} dangerouslySetInnerHTML={{__html: itemInfo.name.toUpperCase()}}></p>
             </Link>
-            <div className={style.likes__list} dangerouslySetInnerHTML={{__html: likeList}}></div>
+            <Link to={`/react-leaguechampions/items/${itemInfo.name}`} className={style.likes__list} dangerouslySetInnerHTML={{__html: likeList}}></Link>
           </div>
       </>
     );
