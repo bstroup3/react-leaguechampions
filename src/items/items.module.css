@@ -53,9 +53,17 @@
     font-size: 300%;
 }
 .likes__list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position:absolute;
     box-sizing: border-box;
     width: 145.48px;
-    background:White;
-    color: black;
+    height: 145.48px;
+    background:Black;
+    opacity: 80%;
+    text-decoration: none;
   }
+/* .like__list:hover{
+    height: 145.48;
+} */

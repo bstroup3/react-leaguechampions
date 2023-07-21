@@ -65,30 +65,44 @@ export default function Item({itemInfo, version}) {
   const handleHover=()=>{
     let stats = ""
     for(const key in itemInfo.stats){
-      console.log("Key: " + key)
       for(const stat in statlist){
-        console.log(statlist[stat])
         if(key == statlist[stat].statname){
-          stats += `${statlist[stat].realname}: ${itemInfo.stats[key]} `
+          stats += `${statlist[stat].realname}: ${itemInfo.stats[key]}<br>`
           break
         }
       }
     }
-    return setLikeList(`Stats: Gold: ${itemInfo.gold.total} ${stats}`)
+    return setLikeList(`Stats:<br>Gold: ${itemInfo.gold.total}<br>${stats}`)
   }
   //console.log(itemInfo.stats)
-  return (
-    <>
-        <div className={style.item} onMouseOver={handleHover} onMouseLeave={handleLeave}>
-          <Link className={style.itemListBox} to={`/react-leaguechampions/items/${itemInfo.name}`}>
-              <img className={style.itemSquare} src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/item/${itemInfo.image.full}`}
-              alt={itemInfo.name + " picture"} />
-              <p className={style.itemName} dangerouslySetInnerHTML={{__html: itemInfo.name.toUpperCase()}}></p>
-          </Link>
-          <div className={style.likes__list}>
-            {likeList}
+  if(likeList == ""){
+    return (
+      <>
+          <div className={style.item} onMouseOver={handleHover} onMouseLeave={handleLeave}>
+            <Link className={style.itemListBox} to={`/react-leaguechampions/items/${itemInfo.name}`}>
+                <img className={style.itemSquare} src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/item/${itemInfo.image.full}`}
+                alt={itemInfo.name + " picture"} />
+                <p className={style.itemName} dangerouslySetInnerHTML={{__html: itemInfo.name.toUpperCase()}}></p>
+            </Link>
+            {/* <div className={style.likes__list}>
+              {likeList}
+            </div> */}
           </div>
-        </div>
-    </>
-  );
+      </>
+    );
+  }
+  else{
+    return (
+      <>
+          <div className={style.item} onMouseOver={handleHover} onMouseLeave={handleLeave}>
+            <Link className={style.itemListBox} to={`/react-leaguechampions/items/${itemInfo.name}`}>
+                <img className={style.itemSquare} src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/item/${itemInfo.image.full}`}
+                alt={itemInfo.name + " picture"} />
+                <p className={style.itemName} dangerouslySetInnerHTML={{__html: itemInfo.name.toUpperCase()}}></p>
+            </Link>
+            <div className={style.likes__list} dangerouslySetInnerHTML={{__html: likeList}}></div>
+          </div>
+      </>
+    );
+  }
 }

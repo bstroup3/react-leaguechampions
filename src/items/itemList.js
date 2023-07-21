@@ -134,17 +134,20 @@ class itemList extends Component{
                 </div>
                 <div>
                 {
-                    tags.map((tag) =>{
-                        const filteredItems = ItemListItems.filter((item) => (item.props.itemInfo.tags.indexOf(tag.tag) > -1))
-                        return( 
-                            <>
-                            <h1 className={style.tagHeader}>{tag.name}</h1>
-                            <div className={style.items}>
-                                {filteredItems}
-                            </div>
-                            </>
-                        )
-                    })
+                    // tags.map((tag) =>{
+                    //     const filteredItems = ItemListItems.filter((item) => (item.props.itemInfo.tags.indexOf(tag.tag) > -1))
+                    //     return( 
+                    //         <>
+                    //         <h1 className={style.tagHeader}>{tag.name}</h1>
+                    //         <div className={style.items}>
+                    //             {filteredItems}
+                    //         </div>
+                    //         </>
+                    //     )
+                    // })
+                    <div className={style.items}>
+                        {ItemListItems}
+                    </div>
                 }
                 </div>
             </div>
