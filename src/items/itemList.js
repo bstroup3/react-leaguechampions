@@ -1,6 +1,6 @@
 import React,{ Component } from "react";
 import style from "./items.module.css"
-import Header from "../headers/itemHeader"
+import Header from "../headers/itemListHeader"
 import Item from "./item"
 
 

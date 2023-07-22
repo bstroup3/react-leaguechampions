@@ -107,7 +107,6 @@ class App extends Component{
 
   render() {
     window.scrollTo(0,0);
-    console.log("what is going on");
     const router = createBrowserRouter([
       {
         path: "/react-leaguechampions/",

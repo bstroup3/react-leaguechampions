@@ -79,7 +79,7 @@ export default function Item({itemInfo, version}) {
       <>
           <div className={style.item} onMouseOver={handleHover} onMouseLeave={handleLeave}>
             <Link className={style.itemListBox} to={`/react-leaguechampions/items/${itemInfo.name}`}>
-                <img className={style.itemSquare} src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/item/${itemInfo.image.full}`}
+                <img className={style.itemSquare} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${itemInfo.image.full}`}
                 alt={itemInfo.name + " picture"} />
                 <p className={style.itemName} dangerouslySetInnerHTML={{__html: itemInfo.name.toUpperCase()}}></p>
             </Link>
@@ -92,7 +92,7 @@ export default function Item({itemInfo, version}) {
       <>
           <div className={style.item} onMouseOver={handleHover} onMouseLeave={handleLeave}>
             <Link className={style.itemListBox} to={`/react-leaguechampions/items/${itemInfo.name}`}>
-                <img className={style.itemSquare} src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/item/${itemInfo.image.full}`}
+                <img className={style.itemSquare} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${itemInfo.image.full}`}
                 alt={itemInfo.name + " picture"} />
                 <p className={style.itemName} dangerouslySetInnerHTML={{__html: itemInfo.name.toUpperCase()}}></p>
             </Link>

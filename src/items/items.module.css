@@ -65,3 +65,40 @@
     text-decoration: none;
     color: goldenrod;
 }
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.itemPicture{
+    height: 100px;
+    width: 100px;
+}
+.lineRow{
+    background-color: goldenrod;
+    border: none;
+    height: 2px;
+    margin-top: 2%;
+}
+.buildInto{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.potentialItems{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buildsIntoCard{
+    padding: 10px;
+    text-decoration: none;
+    color: goldenrod;
+}
+.buildsIntoCard:hover{
+    border: 1px white solid;
+}
