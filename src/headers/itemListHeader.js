@@ -1,7 +1,7 @@
 import React from "react";
 import style from '../mystyle.module.css'
 import {Link} from "react-router-dom"
-const header = ({currentView, onCardClickBack, onSearchChange, }) => {
+const header = ({onSearchChange, }) => {
     return(
       <div className={style.stickyHeader}>
         <Link className={style.homeButton} to="/react-leaguechampions/">Home</Link>

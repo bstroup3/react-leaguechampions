@@ -118,6 +118,7 @@ class itemList extends Component{
             (item.requiredChampion != "Sylas"))
             .sort((a,b) => a.gold.total > b.gold.total ? 1 : -1).map((item) => {
             if((item.name.toLowerCase()).includes(this.props.searchfield.toLowerCase())){
+                console.log(this.props.searchfield)
                 return <Item key={item.name}
                     itemInfo={item} version={this.props.version}/>
             }
@@ -130,21 +131,10 @@ class itemList extends Component{
         return(
             <div className={style.container}>
                 <div className={style.stickyHeader}>
-                <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.onSearchChange}/>
+                <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.props.onSearchChange}/>
                 </div>
                 <div>
                 {
-                    // tags.map((tag) =>{
-                    //     const filteredItems = ItemListItems.filter((item) => (item.props.itemInfo.tags.indexOf(tag.tag) > -1))
-                    //     return( 
-                    //         <>
-                    //         <h1 className={style.tagHeader}>{tag.name}</h1>
-                    //         <div className={style.items}>
-                    //             {filteredItems}
-                    //         </div>
-                    //         </>
-                    //     )
-                    // })
                     <div className={style.items}>
                         {ItemListItems}
                     </div>

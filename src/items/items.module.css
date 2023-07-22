@@ -85,19 +85,28 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     padding-left: 10%;
     padding-right: 10%;
 }
+
 .potentialItems{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: top;
+    max-width: 50%;
 }
 .buildsIntoCard{
     padding: 10px;
     text-decoration: none;
     color: goldenrod;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 6%;
+    max-height: 3%;
 }
 .buildsIntoCard:hover{
     border: 1px white solid;

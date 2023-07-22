@@ -30,7 +30,7 @@ class championList extends Component{
         return(
             <div className={style.container}>
                 <div className={style.stickyHeader}>
-                <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.onSearchChange}/>
+                <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.props.onSearchChange}/>
                 </div>
                 <div className={style.champs}>
                     {ChampionListItems}
