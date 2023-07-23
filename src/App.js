@@ -115,7 +115,7 @@ class App extends Component{
       },
       {
           path: "/react-leaguechampions/champions",
-          element: <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} searchfield={this.state.searchfield} onSearchChange={this.onSearchChange} version={this.state.version}/>
+          element: <ChampionList championsData={this.state.championsData} searchfield={this.state.searchfield} onSearchChange={this.onSearchChange} version={this.state.version}/>
       },
       {
         path: "/react-leaguechampions/champions/:currentChampionData",

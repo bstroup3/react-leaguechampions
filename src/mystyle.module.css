@@ -143,7 +143,7 @@ body{
 }
 
 .SearchBar{
-    width: 40%;
+    width: 30%;
     height: 150%;
     font-size: large;
 }
@@ -153,6 +153,16 @@ body{
     place-items: center;
 }
 
+.inputs{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.label{
+    padding-left: 2%;
+    font-size: 125%;
+}
 .stickyHeader{
     position: sticky;
     top: 0px;
@@ -198,4 +208,8 @@ body{
 .itemPicture{
     height: 100px;
     width: 100px;
+}
+.typeFilter{
+    background-color: black;
+    color: goldenrod;
 }

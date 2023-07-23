@@ -43,6 +43,7 @@ export default function ChampionCard()
     else{
         const champion = Champion[`${window.location.pathname.split('/')[window.location.pathname.split('/').length-1].replaceAll("%20", "")}`]
         const stats = champion.stats
+        console.log(Champion)
          return (
                 <>
                     <div className={style.champCard}>
