@@ -1,18 +1,10 @@
-import React,{ Component } from "react";
+import React,{ useState } from "react";
 import style from "./items.module.css"
 import Header from "../headers/itemListHeader"
 import Item from "./item"
 
 
-class itemList extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-
-        }
-    }
-
-    render() {
+export default function ItemList({itemsData, searchfield, onSearchChange, version}){
         const tags = [
             {
                 tag: 'Damage',
@@ -111,16 +103,18 @@ class itemList extends Component{
                 name: 'Boots'
             }
         ]
-
-        const ItemListItems = this.props.itemsData.filter(
+        const [filter, setFilter] = useState("")
+        function onFilterChange(e){
+            setFilter(e.target.value)
+        }  
+        const ItemListItems = itemsData.filter(
             (item) => (item.inStore != false) && 
             (item.maps['11'] == true) &&
             (item.requiredChampion != "Sylas"))
             .sort((a,b) => a.gold.total > b.gold.total ? 1 : -1).map((item) => {
-            if((item.name.toLowerCase()).includes(this.props.searchfield.toLowerCase())){
-                console.log(this.props.searchfield)
+            if((item.name.toLowerCase()).includes(searchfield.toLowerCase()) && (filter == "" || item.tags.some(tag => tag == filter))){
                 return <Item key={item.name}
-                    itemInfo={item} version={this.props.version}/>
+                    itemInfo={item} version={version}/>
             }
             else{
                 return(
@@ -131,7 +125,7 @@ class itemList extends Component{
         return(
             <div className={style.container}>
                 <div className={style.stickyHeader}>
-                <Header currentView = {this.state.currentView} onCardClickBack={this.handleCardClickBack} onSearchChange={this.props.onSearchChange}/>
+                <Header onSearchChange={onSearchChange} filter={filter} onFilterChange={onFilterChange}/>
                 </div>
                 <div>
                 {
@@ -142,7 +136,4 @@ class itemList extends Component{
                 </div>
             </div>
         )
-    }
 }
-
-export default itemList;

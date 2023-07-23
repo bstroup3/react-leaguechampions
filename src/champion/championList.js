@@ -6,12 +6,9 @@ import Header from '../headers/championListHeader'
 
 
 export default function ChampionList({championsData, searchfield, onSearchChange, version}){
-
-
     const onFilterChange = (e) => {
         setFilter(e.target.value)
     }
-        console.log(championsData)
         const [filter, setFilter] = useState("")
         const ChampionListItems = championsData.sort((a,b) => a.name > b.name ? 1 : -1).map((champion) => {
             if((champion.name.toLowerCase()).includes(searchfield.toLowerCase()) && (filter == "" || champion.tags.some(tag => tag == filter))){

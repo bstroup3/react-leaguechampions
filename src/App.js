@@ -102,7 +102,6 @@ class App extends Component{
 
   onSearchChange = (event) => {
     this.setState({searchfield: event.target.value});
-    console.log("this works")
   }
 
 
@@ -123,7 +122,7 @@ class App extends Component{
       },
       {
         path: "/react-leaguechampions/items",
-        element: <ItemList onItemClick={this.handleItemClick} itemsData={this.state.itemsData} searchfield={this.state.searchfield} onSearchChange={this.onSearchChange} version={this.state.version}/>
+        element: <ItemList itemsData={this.state.itemsData} searchfield={this.state.searchfield} onSearchChange={this.onSearchChange} version={this.state.version}/>
       },
       {
         path: "/react-leaguechampions/items/:itemData",

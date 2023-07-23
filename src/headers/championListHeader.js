@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import style from '../mystyle.module.css'
 import {Link} from 'react-router-dom'
 export default function Header({onSearchChange, filter, onFilterChange}){
