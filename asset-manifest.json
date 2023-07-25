@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-leaguechampions/static/css/main.0c77b86d.css",
-    "main.js": "/react-leaguechampions/static/js/main.65a5e6c0.js",
+    "main.css": "/react-leaguechampions/static/css/main.649fbe93.css",
+    "main.js": "/react-leaguechampions/static/js/main.ba33f60d.js",
     "static/media/WhiteLOL.png": "/react-leaguechampions/static/media/WhiteLOL.affa4259f1900628a5ce.png",
     "static/media/Towa_Emote.webp": "/react-leaguechampions/static/media/Towa_Emote.37ba83fcd9e48a4cad37.webp",
     "index.html": "/react-leaguechampions/index.html",
-    "main.0c77b86d.css.map": "/react-leaguechampions/static/css/main.0c77b86d.css.map",
-    "main.65a5e6c0.js.map": "/react-leaguechampions/static/js/main.65a5e6c0.js.map"
+    "main.649fbe93.css.map": "/react-leaguechampions/static/css/main.649fbe93.css.map",
+    "main.ba33f60d.js.map": "/react-leaguechampions/static/js/main.ba33f60d.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c77b86d.css",
-    "static/js/main.65a5e6c0.js"
+    "static/css/main.649fbe93.css",
+    "static/js/main.ba33f60d.js"
   ]
 }
