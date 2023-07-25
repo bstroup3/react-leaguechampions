@@ -1,6 +1,6 @@
 .header{
     text-align: center;
-    color: goldenrod;
+    color: #FFD635;
 }
 
 .champs{
@@ -18,7 +18,7 @@
 
 .backTopButton{
     display: block;
-    background: goldenrod;
+    background: #FFD635;
     border: 0;
     border-radius: 5px;
     width: 80px;
@@ -38,7 +38,7 @@
 
 .backHeaderButton{
     display: block;
-    background: goldenrod;
+    background: #FFD635;
     border: 0;
     border-radius: 5px;
     width: 80px;
@@ -85,7 +85,7 @@
 
 body{
     background-color: black;
-    color: goldenrod;
+    color: #FFD635;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -136,7 +136,7 @@ body{
 }
 
 .lineRow{
-    background-color: goldenrod;
+    background-color: #FFD635;
     border: none;
     height: 2px;
     margin-top: 2%;
@@ -180,7 +180,7 @@ body{
 }
 .homeButton{
     display: flex;
-    background: goldenrod;
+    background: #FFD635;
     border: 0;
     border-radius: 5px;
     width: 80px;
@@ -214,5 +214,5 @@ body{
 }
 .typeFilter{
     background-color: black;
-    color: goldenrod;
+    color: #FFD635;
 }
