@@ -205,6 +205,9 @@ body{
     font-size: 300%;
     text-align: center;
 }
+.profileHeader{
+    text-align: center;
+}
 .itemPicture{
     height: 100px;
     width: 100px;

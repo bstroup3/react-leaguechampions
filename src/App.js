@@ -1,5 +1,5 @@
 
-import React,{ Component } from 'react';
+import React,{ Component, version } from 'react';
 import ChampionList from './champion/championList'
 import Axios from 'axios'
 import ChampionCard from './champion/championCard'
@@ -8,7 +8,9 @@ import {RouterProvider, createBrowserRouter} from "react-router-dom"
 import Home from "./home/home"
 import ItemList from "./items/itemList"
 import ItemCard from './items/itemCard';
+import Profile from './profile/profile'
 import NoPageFound from './nopage/noPageFound';
+import ProfileViewer from './profile/profileViewer';
 
 class App extends Component{
 
@@ -127,6 +129,14 @@ class App extends Component{
       {
         path: "/react-leaguechampions/items/:itemData",
         element: <ItemCard />
+      },
+      {
+        path: "/react-leaguechampions/profile",
+        element: <Profile searchfield={this.state.searchfield} onSearchChange={this.onSearchChange}/>
+      },
+      {
+        path: "/react-leaguechampions/profile/:username",
+        element: <ProfileViewer championsData={this.state.championsData} version={this.state.version}/>
       },
       {
         path: "/*",

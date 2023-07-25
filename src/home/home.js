@@ -11,6 +11,7 @@ export default function home(){
             <div className={style.Options}>
                 <Link className={style.button} to="/react-leaguechampions/champions">View Champions</Link>
                 <Link className={style.button} to="/react-leaguechampions/items">View Items</Link>
+                <Link className={style.button} to="/react-leaguechampions/profile">Profile Look-up</Link>
             </div>
         </div>
     )
