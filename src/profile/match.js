@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 export default function Match({matchId, api_key, profileId}){
     const [match, setMatch] = useState()
     useEffect(() => {
-        Axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${api_key}`)
+        Axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=RGAPI-${api_key}`)
         .then((response) => {
             setMatch(response.data)
         })

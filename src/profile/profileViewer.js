@@ -16,14 +16,14 @@ export default function ProfileViewer({championsData, version}){
     const [matchHistory, setMatchHistory] = useState()
     const [matches, setMatches] = useState([])
     useEffect(() => {
-        Axios.get(`https://${server}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}?api_key=${api_key}`)
+        Axios.get(`https://${server}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}?api_key=RGAPI-${api_key}`)
         .then((response) => {
             setProfile(response.data)
-            Axios.get(`https://${server}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${response.data.id}?api_key=${api_key}`)
+            Axios.get(`https://${server}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${response.data.id}?api_key=RGAPI-${api_key}`)
             .then((response) => {
                 setChampionMastery(response.data)
             })
-            Axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${response.data.puuid}/ids?start=0&count=15&api_key=${api_key}`)
+            Axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${response.data.puuid}/ids?start=0&count=15&api_key=RGAPI-${api_key}`)
             .then((response) => {
                 setMatchHistory(response.data)
             })
