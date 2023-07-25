@@ -10,7 +10,6 @@ export default function ProfileViewer({championsData, version}){
     const server = window.location.pathname.split("/")[window.location.pathname.split("/").length-1].split("&")[1]
     const [responseCode, setResponseCode] = useState(200)
     const api_key = process.env.REACT_APP_API_KEY
-    console.log(api_key)
     const [profile, setProfile] = useState("")
     const [championMastery, setChampionMastery] = useState()
     useEffect(() => {
