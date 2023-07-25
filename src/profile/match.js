@@ -61,6 +61,8 @@ export default function Match({matchId, api_key, profileId}){
         const playerTeam = match.info.participants.filter((participant) => (participant.puuid == profileId))[0].teamId
         let gameOutcome = (match.info.teams[0].teamId == playerTeam && match.info.teams[0].win == true) || (match.info.teams[1].teamId == playerTeam && match.info.teams[1].win == true) ? "Win" : "Loss" 
         gameOutcome = (match.info.gameDuration < 600) ? "Remake" : gameOutcome
+        const offset = new Date(match.info.gameEndTimestamp).getTimezoneOffset()
+        console.log(offset)
         const gameDate = new Date(match.info.gameEndTimestamp).toISOString().slice(0,10)
         const gameTime = new Date(match.info.gameEndTimestamp).toISOString().slice(11,16)
         const gameDuration = secondsToTime(match.info.gameDuration)

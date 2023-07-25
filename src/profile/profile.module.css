@@ -7,9 +7,10 @@
     margin-bottom: 3%;
 }
 .SearchBar{
-    width: 30%;
-    height: 150%;
-    font-size: large;
+    width: 40%;
+    height: 50px;
+    font-size: x-large;
+    text-align: center;
 }
 .inputs{
     width: 100%;
@@ -51,4 +52,19 @@
 }
 h1,h2,h3{
     margin: 0%;
+}
+.profilePage{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 150px);
+    min-width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+.profileHeader{
+    font-size: 500%;
+}
+.serverFilter{
+    background-color: black;
+    color: goldenrod;
 }
