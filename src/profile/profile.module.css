@@ -39,5 +39,15 @@
     background-color: goldenrod;
     border: none;
     height: 2px;
-    margin-top: 2%;
+    margin-top: 1%;
+}
+.matchContainer{
+    width: 100%;
+    text-decoration: none;
+    color: goldenrod;
+    border: 1px solid white;
+    margin: 1%;
+}
+h1,h2,h3{
+    margin: 0%;
 }
