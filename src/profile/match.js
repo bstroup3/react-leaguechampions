@@ -73,18 +73,35 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
         const assists = match.info.participants.filter((participant) => (participant.puuid == profileId))[0].assists
         const team1 = match.info.queueId == 1700 ?
             match.info.participants.slice(0, 4).map((participant) => {
-                return <h4>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
-            }) :
+                return (
+                    <div className={style.participants}> 
+                        <img className={style.miniImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championsData.filter((champion) => (champion.key == participant.championId))[0].image.full}`}/>
+                        <h4 className={style.playerNames}>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
+                    </div>
+                )            }) :
             match.info.participants.slice(0, 5).map((participant) => {
-                return <h4>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
+                return (
+                    <div className={style.participants}>
+                        <img className={style.miniImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championsData.filter((champion) => (champion.key == participant.championId))[0].image.full}`}/>
+                        <h4 className={style.playerNames}>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
+                    </div>
+                )
             })
         const team2 = match.info.queueId == 1700 ?
             match.info.participants.slice(4, 9).map((participant) => {
-                return <h4>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
-            }) :
+                return (
+                    <div className={style.participants}>
+                        <img className={style.miniImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championsData.filter((champion) => (champion.key == participant.championId))[0].image.full}`}/>
+                        <h4 className={style.playerNames}>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
+                    </div>
+                )            }) :
             match.info.participants.slice(5, 10).map((participant) => {
-                return <h4>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
-            })
+                return (
+                    <div className={style.participants}>
+                        <img className={style.miniImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championsData.filter((champion) => (champion.key == participant.championId))[0].image.full}`}/>
+                        <h4 className={style.playerNames}>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
+                    </div>
+                )            })
             if(gameOutcome == "Win"){
                 return (
                     <div className={style.outterMatchContainer}>
