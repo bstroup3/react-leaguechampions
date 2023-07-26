@@ -6,6 +6,13 @@
     align-self: center;
     margin-bottom: 3%;
 }
+.outterMatchContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
 .SearchBar{
     width: 40%;
     height: 50px;
@@ -44,13 +51,18 @@
     margin-top: 1%;
 }
 .matchContainer{
-    width: 100%;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: row;
+    width: 60%;
     text-decoration: none;
     color: #FFD635;
     border: 1px solid #FFD635;
-    margin: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
-h1,h2,h3{
+h1,h2,h3,h4{
     margin: 0%;
 }
 .profilePage{
@@ -67,4 +79,40 @@ h1,h2,h3{
 .serverFilter{
     background-color: black;
     color: #FFD635;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.champPicture{
+
+}
+.statline{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.players{
+    display: flex;
+    flex-direction: row;
+}
+.team1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+}
+.team2{
+    text-align: end;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
 }

@@ -43,10 +43,10 @@ export default function ProfileViewer({championsData, version}){
             return <h3 className={style.masteryComponents}>{championsData.filter((champion2) => (champion1.championId == champion2.key))[0].name}<br/>Mastery Level {champion1.championLevel}<br/>{champion1.championPoints}</h3>
         })
         const filteredChampionMasteryPictureName = preFilterChampionMastery.map((champion1) => {
-            return <img className={style.masteryPicture} src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championsData.filter((champion2) => (champion1.championId == champion2.key))[0].image.full}`} />
+            return <img className={style.masteryPicture} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championsData.filter((champion2) => (champion1.championId == champion2.key))[0].image.full}`} />
         })
         const matches = matchHistory.map((matchId) => {
-            return <Match matchId={matchId} api_key={api_key} profileId={profile.puuid}/> 
+            return <Match matchId={matchId} api_key={api_key} profileId={profile.puuid} championsData={championsData} version={version}/> 
         })
         return(
             <div>
