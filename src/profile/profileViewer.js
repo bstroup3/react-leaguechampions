@@ -29,7 +29,7 @@ export default function ProfileViewer({championsData, version}){
             })
         })
         .catch((e) =>{
-            setResponseCode(e.name)
+            setResponseCode(e)
         })
     },[])
     console.log(matches)
