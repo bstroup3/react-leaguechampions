@@ -85,32 +85,91 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
             match.info.participants.slice(5, 10).map((participant) => {
                 return <h4>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
             })
-        return (
-            <div className={style.outterMatchContainer}>
-                <div className={style.matchContainer}>
-                    <div className={style.left}>
-                        <h2>{gameMode}</h2>
-                        <h1>{gameOutcome}</h1>
-                        <h3>{gameDate} {gameTime}{gameTimeSequence}</h3>
-                        <h3>{gameDuration}</h3>
-                    </div>
-                    <div className={style.champPicture}>
-                        <img src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champPicture}`} />
-                    </div>
-                    <div className={style.statline}>
-                        <h1>{kills} / {deaths} / {assists}</h1>
-                    </div>
-                    <div className={style.players}>
-                        <div className={style.team1}>
-                            {team1}
+            if(gameOutcome == "Win"){
+                return (
+                    <div className={style.outterMatchContainer}>
+                        <div className={style.winMatchContainer}>
+                            <div className={style.left}>
+                                <h2>{gameMode}</h2>
+                                <h1>{gameOutcome}</h1>
+                                <h3>{gameDate} {gameTime}{gameTimeSequence}</h3>
+                                <h3>{gameDuration}</h3>
+                            </div>
+                            <div className={style.champPicture}>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champPicture}`} />
+                            </div>
+                            <div className={style.statline}>
+                                <h1>{kills} / {deaths} / {assists}</h1>
+                            </div>
+                            <div className={style.players}>
+                                <div className={style.team1}>
+                                    {team1}
+                                </div>
+                                <div className={style.team2}>
+                                    {team2}
+                                </div>
+                            </div>
                         </div>
-                        <div className={style.team2}>
-                            {team2}
+                    </div>
+                )
+            }
+            else if(gameOutcome == "Loss"){
+                return (
+                    <div className={style.outterMatchContainer}>
+                        <div className={style.lossMatchContainer}>
+                            <div className={style.left}>
+                                <h2>{gameMode}</h2>
+                                <h1>{gameOutcome}</h1>
+                                <h3>{gameDate} {gameTime}{gameTimeSequence}</h3>
+                                <h3>{gameDuration}</h3>
+                            </div>
+                            <div className={style.champPicture}>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champPicture}`} />
+                            </div>
+                            <div className={style.statline}>
+                                <h1>{kills} / {deaths} / {assists}</h1>
+                            </div>
+                            <div className={style.players}>
+                                <div className={style.team1}>
+                                    {team1}
+                                </div>
+                                <div className={style.team2}>
+                                    {team2}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        )
+                )
+            }
+            else{
+                return (
+                    <div className={style.outterMatchContainer}>
+                        <div className={style.remakeMatchContainer}>
+                            <div className={style.left}>
+                                <h2>{gameMode}</h2>
+                                <h1>{gameOutcome}</h1>
+                                <h3>{gameDate} {gameTime}{gameTimeSequence}</h3>
+                                <h3>{gameDuration}</h3>
+                            </div>
+                            <div className={style.champPicture}>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champPicture}`} />
+                            </div>
+                            <div className={style.statline}>
+                                <h1>{kills} / {deaths} / {assists}</h1>
+                            </div>
+                            <div className={style.players}>
+                                <div className={style.team1}>
+                                    {team1}
+                                </div>
+                                <div className={style.team2}>
+                                    {team2}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+            
     }
     else {
         return (

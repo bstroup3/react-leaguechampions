@@ -90,7 +90,9 @@ h1,h2,h3,h4{
     width: 30%;
 }
 .champPicture{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .statline{
     display: flex;
@@ -117,4 +119,43 @@ h1,h2,h3,h4{
     flex-direction: column;
     justify-content: center;
     width: 100px;
+}
+.remakeMatchContainer{
+    background-color: dimgray;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    text-decoration: none;
+    color: lightgrey;
+    border: 1px solid #FFD635;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.lossMatchContainer{
+    background-color: lightpink;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    text-decoration: none;
+    color: #6E260E;
+    border: 1px solid #FFD635;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.winMatchContainer{
+    background-color: #98FB98;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    text-decoration: none;
+    color: darkgreen;
+    border: 1px solid #FFD635;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
