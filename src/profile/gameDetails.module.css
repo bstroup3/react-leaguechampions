@@ -1,3 +1,6 @@
+.container{
+    margin-left: 20px;
+}
 .teams{
     display: flex;
     flex-direction: column;
@@ -7,13 +10,13 @@
     flex-direction: row;
 }
 .team1{
-    margin-bottom: 3%;
+    margin-bottom: 1.5%;
 }
 .team2{
 
 }
 .gameOutcome{
-    margin-bottom: 3%;
+    margin-bottom: 1.5%;
 }
 .playerName{
     display: flex;
@@ -23,6 +26,7 @@
 }
 .statLine{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     min-width: 100px;
@@ -44,4 +48,21 @@
     justify-content: center;
     align-items: center;
     height: 50px;
+}
+.headerSpacer{
+    min-width: 350px;
+}
+.teamHeader{
+    display: flex;
+    flex-direction: row;
+}
+.statLineHeader{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 50px;
+    max-width: 90px;
+    margin-left: 10px;
 }

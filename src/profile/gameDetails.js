@@ -35,9 +35,42 @@ export default function GameDetails({profileId, gameDetails, participants, champ
 
         const gameDuration = secondsToTime(gameDetails.info.gameDuration)
 
-        const participant = "coSrXAcg5slXT_2bcBOpRcyKbrpbT0TzDYzBwlEKdWZvPYN6VDz0MRYWJywE5aBgd7FgKhH2jf8aHw" 
-        console.log(gameDetails.info.participants.filter((participant1) => (participant1.puuid == participant)))//[gameDetails.info.participants.indexOf((participant2) => participant2.puuid == participant)])
-        //console.log(participants.filter((participant) => (gameDetails.info.participants[gameDetails.info.participants.indexOf((participant2) => participant2.puuid == participant)] == participant)))
+        const queues = [
+            {
+                queueId: 1700,
+                name: "Arena"
+            },
+            {
+                queueId: 420,
+                name: "Ranked Solo"
+            },
+            {
+                queueId: 430,
+                name: "Blind"
+            },
+            {
+                queueId: 440,
+                name: "Ranked Flex"
+            },
+            {
+                queueId: 450,
+                name: "ARAM"
+            },
+            {
+                queueId: 700,
+                name: "Clash"
+            },
+            {
+                queueId: 720,
+                name: "ARAM Clash"
+            },
+            {
+                queueId: 400,
+                name: "Draft"
+            }
+        ]
+
+        const gameMode = queues.filter((queue) => (queue.queueId == gameDetails.info.queueId))[0].name
         const team1 = gameDetails.info.participants.filter((participant) => (participants.filter((participant1) => (participant1.puuid == participant)) && participant.teamId == playerTeam)).map((participant) => {
             const champLevel = participant.champLevel
             const kills = participant.kills
@@ -46,7 +79,9 @@ export default function GameDetails({profileId, gameDetails, participants, champ
             const totalMinionsKilled = participant.totalMinionsKilled
             const totalNeutralMinionsKilled = participant.neutralMinionsKilled
             const creepScore = totalMinionsKilled + totalNeutralMinionsKilled
-            const totalDamageDealt = participant.totalDamageDealt
+            const totalDamageDealt = participant.totalDamageDealtToChampions
+            const totalDamageTaken = participant.totalDamageTaken
+            const totalGold = participant.goldEarned
             return(
                 <div className={style.playerStats}>
                     <h4 className={style.champLevel}>{champLevel}</h4>
@@ -54,7 +89,9 @@ export default function GameDetails({profileId, gameDetails, participants, champ
                     <h4 className={style.playerName}>{participant.summonerName}</h4>
                     <h4 className={style.statLine}>{kills} / {deaths} / {assists}</h4>
                     <h4 className={style.creepScore}>{creepScore}</h4>
-                    <h4 className={style.creepScore}>{totalDamageDealt}</h4>
+                    <h4 className={style.statLine}>{totalDamageDealt}</h4>
+                    <h4 className={style.statLine}>{totalDamageTaken}</h4>
+                    <h4 className={style.statLine}>{totalGold}</h4>
                 </div>
             ) 
         })
@@ -66,7 +103,9 @@ export default function GameDetails({profileId, gameDetails, participants, champ
             const totalMinionsKilled = participant.totalMinionsKilled
             const totalNeutralMinionsKilled = participant.neutralMinionsKilled
             const creepScore = totalMinionsKilled + totalNeutralMinionsKilled
-            const totalDamageDealt = participant.totalDamageDealt
+            const totalDamageDealt = participant.totalDamageDealtToChampions
+            const totalDamageTaken = participant.totalDamageTaken
+            const totalGold = participant.goldEarned
             return(
                 <div className={style.playerStats}>
                     <h4 className={style.champLevel}>{champLevel}</h4>
@@ -74,7 +113,9 @@ export default function GameDetails({profileId, gameDetails, participants, champ
                     <h4 className={style.playerName}>{participant.summonerName}</h4>
                     <h4 className={style.statLine}>{kills} / {deaths} / {assists}</h4>
                     <h4 className={style.creepScore}>{creepScore}</h4>
-                    <h4 className={style.creepScore}>{totalDamageDealt}</h4>
+                    <h4 className={style.statLine}>{totalDamageDealt}</h4>
+                    <h4 className={style.statLine}>{totalDamageTaken}</h4>
+                    <h4 className={style.statLine}>{totalGold}</h4>
                 </div>
             ) 
         })
@@ -82,16 +123,28 @@ export default function GameDetails({profileId, gameDetails, participants, champ
         return(
             <div>
                 <Header username={username} server={server}/>
-                <div>
+                <div className={style.container}>
                     <div className={style.gameOutcome}>
                         <h1>{gameOutcome}</h1>
+                        <h2>{gameMode}</h2>
                         <h2>{gameDuration}</h2>
                     </div>
                     <div className={style.teams}>
                         <div className={style.team1}>
+                            <div className={style.teamHeader}>
+                                <h2 className={style.headerSpacer}>Team 1</h2>
+                                <h2></h2>
+                                <h3 className={style.creepScore}>CS</h3>
+                                <h3 className={style.statLineHeader}>Damage Dealt</h3>
+                                <h3 className={style.statLineHeader}>Damage Taken</h3>
+                                <h3 className={style.statLineHeader}>Gold Earned</h3>
+                            </div>
                             {team1}
                         </div>
                         <div className={style.team2}>
+                            <div className={style.teamHeader}>
+                                <h2>Team 2</h2>
+                            </div>
                             {team2}
                         </div>
                     </div>
