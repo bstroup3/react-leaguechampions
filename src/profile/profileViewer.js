@@ -42,7 +42,7 @@ export default function ProfileViewer({championsData, version, onGameDetailLoad}
         const filteredChampionMasteryName = preFilterChampionMastery.map((champion1) => {
             let championPoints = 0
             if(champion1.championPoints > 999999){
-                championPoints = champion1.championPoints.toString().slice(0,2) + "M"
+                championPoints = champion1.championPoints.toString().slice(0,1) + "." + champion1.championPoints.toString().slice(1,2) + "M"
             }
             else if(champion1.championPoints > 99999){
                 championPoints = champion1.championPoints.toString().slice(0,3) + "k"
