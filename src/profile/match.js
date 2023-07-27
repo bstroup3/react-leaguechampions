@@ -3,7 +3,7 @@ import style from './profile.module.css'
 import Axios from 'axios'
 import { Link } from 'react-router-dom'
 
-export default function Match({ matchId, api_key, profileId, championsData, version }) {
+export default function Match({ matchId, api_key, profileId, championsData, version, onGameDetailLoad}) {
     const [match, setMatch] = useState()
     useEffect(() => {
         Axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=RGAPI-${api_key}`)
@@ -60,7 +60,7 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
     if (match != undefined) {
         console.log(match)
         const playerTeam = match.info.participants.filter((participant) => (participant.puuid == profileId))[0].teamId
-        let gameOutcome = (match.info.teams[0].teamId == playerTeam && match.info.teams[0].win == true) || (match.info.teams[1].teamId == playerTeam && match.info.teams[1].win == true) ? "Win" : "Loss"
+        let gameOutcome = (match.info.teams[0].teamId == playerTeam && match.info.teams[0].win == true) || (match.info.teams[1].teamId == playerTeam && match.info.teams[1].win == true) ? "Victory" : "Defeat"
         gameOutcome = (match.info.gameDuration < 600) ? "Remake" : gameOutcome
         const date = new Date(match.info.gameEndTimestamp).toLocaleString()
         const gameDate = date.slice(0, 10)
@@ -103,9 +103,9 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
                         <h4 className={style.playerNames}>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
                     </div>
                 )            })
-            if(gameOutcome == "Win"){
+            if(gameOutcome == "Victory"){
                 return (
-                    <div className={style.outterMatchContainer}>
+                    <Link to={`${match.metadata.matchId}`} onClick={() => onGameDetailLoad(profileId, match, match.metadata.participants)} className={style.outterMatchContainer}>
                         <div className={style.winMatchContainer}>
                             <div className={style.left}>
                                 <h2>{gameMode}</h2>
@@ -128,12 +128,12 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 )
             }
-            else if(gameOutcome == "Loss"){
+            else if(gameOutcome == "Defeat"){
                 return (
-                    <div className={style.outterMatchContainer}>
+                    <Link to={`${match.metadata.matchId}`} onClick={() => onGameDetailLoad(profileId, match, match.metadata.participants)} className={style.outterMatchContainer}>
                         <div className={style.lossMatchContainer}>
                             <div className={style.left}>
                                 <h2>{gameMode}</h2>
@@ -156,12 +156,12 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 )
             }
             else{
                 return (
-                    <div className={style.outterMatchContainer}>
+                    <Link to={`${match.metadata.matchId}`} onClick={() => onGameDetailLoad(profileId, match, match.metadata.participants)} className={style.outterMatchContainer}>
                         <div className={style.remakeMatchContainer}>
                             <div className={style.left}>
                                 <h2>{gameMode}</h2>
@@ -184,7 +184,7 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 )
             }
             

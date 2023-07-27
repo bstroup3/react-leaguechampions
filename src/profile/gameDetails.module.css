@@ -1,0 +1,47 @@
+.teams{
+    display: flex;
+    flex-direction: column;
+}
+.playerStats{
+    display: flex;
+    flex-direction: row;
+}
+.team1{
+    margin-bottom: 3%;
+}
+.team2{
+
+}
+.gameOutcome{
+    margin-bottom: 3%;
+}
+.playerName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+}
+.statLine{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100px;
+}
+.creepScore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50px;
+}   
+.champLevel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50px;
+}
+.champPicture{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}

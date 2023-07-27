@@ -4,9 +4,9 @@ import Header from "../headers/profileHeader"
 import Axios from "axios";
 import NoPage from "../nopage/noPageFound"
 import Match from "./match.js"
-import { redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function ProfileViewer({championsData, version}){
+export default function ProfileViewer({championsData, version, onGameDetailLoad}){
     const username = window.location.pathname.split("/")[window.location.pathname.split("/").length-1].split("&")[0]
     const server = window.location.pathname.split("/")[window.location.pathname.split("/").length-1].split("&")[1]
     const [responseCode, setResponseCode] = useState(200)
@@ -40,13 +40,23 @@ export default function ProfileViewer({championsData, version}){
         const preFilterChampionMastery = championMastery.slice(0,3)
         const newUsername = profile.name
         const filteredChampionMasteryName = preFilterChampionMastery.map((champion1) => {
-            return <h3 className={style.masteryComponents}>{championsData.filter((champion2) => (champion1.championId == champion2.key))[0].name}<br/>Mastery Level {champion1.championLevel}<br/>{champion1.championPoints}</h3>
+            let championPoints = 0
+            if(champion1.championPoints > 999999){
+                championPoints = champion1.championPoints.toString().slice(0,2) + "M"
+            }
+            else if(champion1.championPoints > 99999){
+                championPoints = champion1.championPoints.toString().slice(0,3) + "k"
+            }
+            else{
+                championPoints = champion1.championPoints
+            }
+            return <h3 className={style.masteryComponents}>{championsData.filter((champion2) => (champion1.championId == champion2.key))[0].name}<br/>Mastery Level {champion1.championLevel}<br/>{championPoints}</h3>
         })
         const filteredChampionMasteryPictureName = preFilterChampionMastery.map((champion1) => {
             return <img className={style.masteryPicture} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championsData.filter((champion2) => (champion1.championId == champion2.key))[0].image.full}`} />
         })
         const matches = matchHistory.map((matchId) => {
-            return <Match matchId={matchId} api_key={api_key} profileId={profile.puuid} championsData={championsData} version={version}/> 
+            return <Match matchId={matchId} api_key={api_key} profileId={profile.puuid} championsData={championsData} version={version} onGameDetailLoad={onGameDetailLoad}/> 
         })
         return(
             <div>

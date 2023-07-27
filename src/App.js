@@ -11,6 +11,7 @@ import ItemCard from './items/itemCard';
 import Profile from './profile/profile'
 import NoPageFound from './nopage/noPageFound';
 import ProfileViewer from './profile/profileViewer';
+import GameDetails from './profile/gameDetails';
 
 class App extends Component{
 
@@ -21,7 +22,10 @@ class App extends Component{
         searchfield: '',
         championsData: [],
         itemsData: [],
-        version: ''
+        version: '',
+        gameDetails: {},
+        participants: [],
+        profileId: ""
     }
   }
 
@@ -106,6 +110,14 @@ class App extends Component{
     this.setState({searchfield: event.target.value});
   }
 
+  onGameDetailLoad = (profileId ,gameDetails, participants) => {
+    this.setState({
+      profileId: profileId,
+      gameDetails: gameDetails,
+      participants: participants
+    })
+    console.log(participants)
+  }
 
   render() {
     window.scrollTo(0,0);
@@ -136,7 +148,11 @@ class App extends Component{
       },
       {
         path: "/react-leaguechampions/profile/:username",
-        element: <ProfileViewer championsData={this.state.championsData} version={this.state.version}/>
+        element: <ProfileViewer championsData={this.state.championsData} version={this.state.version} onGameDetailLoad={this.onGameDetailLoad}/>
+      },
+      {
+        path: "/react-leaguechampions/profile/:username/:matchId",
+        element: <GameDetails profileId={this.state.profileId} championsData={this.state.championsData} gameDetails={this.state.gameDetails} participants={this.state.participants} version={this.state.version}/>
       },
       {
         path: "/*",
