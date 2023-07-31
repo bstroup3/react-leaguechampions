@@ -38,3 +38,9 @@
     background: rgb(117, 88, 15);
     transition: 0.5s;
 }
+.picture{
+    justify-self: center;
+    align-self: center;
+    height: 400px;
+    width: 700px;
+}

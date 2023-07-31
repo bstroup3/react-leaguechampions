@@ -15,6 +15,7 @@ export default function ProfileViewer({championsData, version, onGameDetailLoad}
     const [championMastery, setChampionMastery] = useState()
     const [matchHistory, setMatchHistory] = useState()
     const [matches, setMatches] = useState([])
+    const [ranks, setRanks] = useState([])
     useEffect(() => {
         Axios.get(`https://${server}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}?api_key=RGAPI-${api_key}`)
         .then((response) => {
@@ -22,6 +23,10 @@ export default function ProfileViewer({championsData, version, onGameDetailLoad}
             Axios.get(`https://${server}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${response.data.id}?api_key=RGAPI-${api_key}`)
             .then((response) => {
                 setChampionMastery(response.data)
+            })
+            Axios.get(`https://${server}.api.riotgames.com/lol/league/v4/entries/by-summoner/${response.data.id}?api_key=RGAPI-${api_key}`)
+            .then((response) => {
+                setRanks(response.data)
             })
             Axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${response.data.puuid}/ids?start=0&count=15&api_key=RGAPI-${api_key}`)
             .then((response) => {
@@ -47,6 +52,9 @@ export default function ProfileViewer({championsData, version, onGameDetailLoad}
             else if(champion1.championPoints > 99999){
                 championPoints = champion1.championPoints.toString().slice(0,3) + "k"
             }
+            else if(champion1.championPoints > 9999){
+                championPoints = champion1.championPoints.toString().slice(0,2) + "k"
+            }
             else{
                 championPoints = champion1.championPoints
             }
@@ -60,7 +68,7 @@ export default function ProfileViewer({championsData, version, onGameDetailLoad}
         })
         return(
             <div>
-                <Header username={newUsername}/>
+                <Header username={newUsername} ranks={ranks}/>
                 <h2 className={style.header}>Mastery</h2>
                 <hr className={style.lineRow}/>
                 <div className={style.container}>

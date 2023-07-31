@@ -216,3 +216,9 @@ body{
     background-color: black;
     color: #FFD635;
 }
+.partialLine{
+    background-color: #FFD635;
+    border: none;
+    height: 2px;
+    width: 200px;
+}

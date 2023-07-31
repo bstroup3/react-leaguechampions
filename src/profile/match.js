@@ -5,11 +5,16 @@ import { Link } from 'react-router-dom'
 
 export default function Match({ matchId, api_key, profileId, championsData, version, onGameDetailLoad}) {
     const [match, setMatch] = useState()
+    const [items, setItems] = useState()
     useEffect(() => {
         Axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=RGAPI-${api_key}`)
             .then((response) => {
                 setMatch(response.data)
             })
+        Axios.get(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/item.json`)
+        .then((response) => {
+            setItems(response.data)
+        })
     }, [])
     function secondsToTime(secs) {
         var h = Math.floor(secs / (60 * 60));
@@ -57,7 +62,7 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
             name: "Draft"
         }
     ]
-    if (match != undefined) {
+    if (match != undefined && items != undefined) {
         console.log(match)
         const playerTeam = match.info.participants.filter((participant) => (participant.puuid == profileId))[0].teamId
         let gameOutcome = (match.info.teams[0].teamId == playerTeam && match.info.teams[0].win == true) || (match.info.teams[1].teamId == playerTeam && match.info.teams[1].win == true) ? "Victory" : "Defeat"
@@ -102,22 +107,90 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
                         <img className={style.miniImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championsData.filter((champion) => (champion.key == participant.championId))[0].image.full}`}/>
                         <h4 className={style.playerNames}>{championsData.filter((champion) => (champion.key == participant.championId))[0].name}</h4>
                     </div>
-                )            })
+                )            
+            })
+            const playerItems = match.info.participants.filter((participant) => (participant.puuid == profileId)).map((participant) => {
+                let item0 = 0
+                let item1 = 0
+                let item2 = 0
+                let item3 = 0
+                let item4 = 0
+                let item5 = 0
+                let item6 = 0
+                if(participant.item0 == 0){
+                    item0 = 7050
+                }
+                else{
+                    item0 = participant.item0
+                }
+                if(participant.item1 == 0){
+                    item1 = 7050
+                }
+                else{
+                    item1 = participant.item1
+                }
+                if(participant.item2 == 0){
+                    item2 = 7050
+                }
+                else{
+                    item2 = participant.item2
+                }
+                if(participant.item3 == 0){
+                    item3 = 7050
+                }
+                else{
+                    item3 = participant.item3
+                }
+                if(participant.item4 == 0){
+                    item4 = 7050
+                }
+                else{
+                    item4 = participant.item4
+                }
+                if(participant.item5 == 0){
+                    item5 = 7050
+                }
+                else{
+                    item5 = participant.item5
+                }
+                if(participant.item6 == 0){
+                    item6 = 7050
+                }
+                else{
+                    item6 = participant.item6
+                }
+                return(
+                    <div className={style.itemList}>
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item0}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item1}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item2}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item3}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item4}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item5}.png`}/> 
+                            <img className={style.tricketImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item6}.png`}/> 
+                    </div>
+                );
+            })
             if(gameOutcome == "Victory"){
                 return (
-                    <Link to={`${match.metadata.matchId}`} onClick={() => onGameDetailLoad(profileId, match, match.metadata.participants)} className={style.outterMatchContainer}>
-                        <div className={style.winMatchContainer}>
+                    <div className={style.outterMatchContainer}>
+                        <Link to={`${match.metadata.matchId}`} onClick={() => onGameDetailLoad(profileId, match, match.metadata.participants)} className={style.winMatchContainer}>
                             <div className={style.left}>
                                 <h2>{gameMode}</h2>
                                 <h1>{gameOutcome}</h1>
-                                <h3>{gameDate} {gameTime}{gameTimeSequence}</h3>
+                                <h4>{gameDate} {gameTime}{gameTimeSequence}</h4>
                                 <h3>{gameDuration}</h3>
                             </div>
                             <div className={style.champPicture}>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champPicture}`} />
+                                <img className={style.picture} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champPicture}`} />
                             </div>
-                            <div className={style.statline}>
-                                <h1>{kills} / {deaths} / {assists}</h1>
+                            <div className={style.playerAndItems}>
+                                <div className={style.statline}>
+                                    <h1>{kills} / {deaths} / {assists}</h1>
+                                </div>
+                                <div className={style.items}>
+                                    {playerItems}
+                                </div>
                             </div>
                             <div className={style.players}>
                                 <div className={style.team1}>
@@ -127,25 +200,30 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
                                     {team2}
                                 </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                 )
             }
             else if(gameOutcome == "Defeat"){
                 return (
-                    <Link to={`${match.metadata.matchId}`} onClick={() => onGameDetailLoad(profileId, match, match.metadata.participants)} className={style.outterMatchContainer}>
-                        <div className={style.lossMatchContainer}>
+                    <div className={style.outterMatchContainer}>
+                        <Link to={`${match.metadata.matchId}`} onClick={() => onGameDetailLoad(profileId, match, match.metadata.participants)} className={style.lossMatchContainer}>
                             <div className={style.left}>
                                 <h2>{gameMode}</h2>
                                 <h1>{gameOutcome}</h1>
-                                <h3>{gameDate} {gameTime}{gameTimeSequence}</h3>
+                                <h4>{gameDate} {gameTime}{gameTimeSequence}</h4>
                                 <h3>{gameDuration}</h3>
                             </div>
                             <div className={style.champPicture}>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champPicture}`} />
+                                <img className={style.picture} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champPicture}`} />
                             </div>
-                            <div className={style.statline}>
-                                <h1>{kills} / {deaths} / {assists}</h1>
+                            <div className={style.playerAndItems}>
+                                <div className={style.statline}>
+                                    <h1>{kills} / {deaths} / {assists}</h1>
+                                </div>
+                                <div className={style.items}>
+                                    {playerItems}
+                                </div>
                             </div>
                             <div className={style.players}>
                                 <div className={style.team1}>
@@ -155,25 +233,30 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
                                     {team2}
                                 </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                 )
             }
             else{
                 return (
-                    <Link to={`${match.metadata.matchId}`} onClick={() => onGameDetailLoad(profileId, match, match.metadata.participants)} className={style.outterMatchContainer}>
-                        <div className={style.remakeMatchContainer}>
+                    <div className={style.outterMatchContainer}>
+                        <Link to={`${match.metadata.matchId}`} onClick={() => onGameDetailLoad(profileId, match, match.metadata.participants)} className={style.remakeMatchContainer}>
                             <div className={style.left}>
                                 <h2>{gameMode}</h2>
                                 <h1>{gameOutcome}</h1>
-                                <h3>{gameDate} {gameTime}{gameTimeSequence}</h3>
+                                <h4>{gameDate} {gameTime}{gameTimeSequence}</h4>
                                 <h3>{gameDuration}</h3>
                             </div>
                             <div className={style.champPicture}>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champPicture}`} />
+                                <img className={style.picture} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champPicture}`} />
                             </div>
-                            <div className={style.statline}>
-                                <h1>{kills} / {deaths} / {assists}</h1>
+                            <div className={style.playerAndItems}>
+                                <div className={style.statline}>
+                                    <h1>{kills} / {deaths} / {assists}</h1>
+                                </div>
+                                <div className={style.items}>
+                                    {playerItems}
+                                </div>
                             </div>
                             <div className={style.players}>
                                 <div className={style.team1}>
@@ -183,8 +266,8 @@ export default function Match({ matchId, api_key, profileId, championsData, vers
                                     {team2}
                                 </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                 )
             }
             
