@@ -116,7 +116,6 @@ class App extends Component{
       gameDetails: gameDetails,
       participants: participants
     })
-    console.log(participants)
   }
 
   render() {

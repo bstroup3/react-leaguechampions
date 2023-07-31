@@ -2,6 +2,12 @@ import React,{useEffect, useState} from "react";
 import Axios from "axios";
 import Header from "../headers/gameDetailHeader"
 import style from "./gameDetails.module.css"
+import TOP from "../imgs/TOP.png"
+import JUNGLE from "../imgs/JUNGLE.png"
+import MIDDLE from "../imgs/MIDDLE.png"
+import BOTTOM from "../imgs/BOTTOM.png"
+import UTILITY from "../imgs/UTILITY.png"
+
 
 export default function GameDetails({profileId, gameDetails, participants, championsData, version}){
     const [players, setPlayers] = useState()
@@ -69,7 +75,6 @@ export default function GameDetails({profileId, gameDetails, participants, champ
                 name: "Draft"
             }
         ]
-
         const gameMode = queues.filter((queue) => (queue.queueId == gameDetails.info.queueId))[0].name
         const team1 = gameDetails.info.participants.filter((participant) => (participants.filter((participant1) => (participant1.puuid == participant)) && participant.teamId == playerTeam)).map((participant) => {
             const champLevel = participant.champLevel
@@ -82,12 +87,94 @@ export default function GameDetails({profileId, gameDetails, participants, champ
             const totalDamageDealt = participant.totalDamageDealtToChampions
             const totalDamageTaken = participant.totalDamageTaken
             const totalGold = participant.goldEarned
+            const playerItems = gameDetails.info.participants.filter((participant1) => (participant1.puuid == participant.puuid)).map((participant) => {
+                let item0 = 0
+                let item1 = 0
+                let item2 = 0
+                let item3 = 0
+                let item4 = 0
+                let item5 = 0
+                let item6 = 0
+                if(participant.item0 == 0){
+                    item0 = 7050
+                }
+                else{
+                    item0 = participant.item0
+                }
+                if(participant.item1 == 0){
+                    item1 = 7050
+                }
+                else{
+                    item1 = participant.item1
+                }
+                if(participant.item2 == 0){
+                    item2 = 7050
+                }
+                else{
+                    item2 = participant.item2
+                }
+                if(participant.item3 == 0){
+                    item3 = 7050
+                }
+                else{
+                    item3 = participant.item3
+                }
+                if(participant.item4 == 0){
+                    item4 = 7050
+                }
+                else{
+                    item4 = participant.item4
+                }
+                if(participant.item5 == 0){
+                    item5 = 7050
+                }
+                else{
+                    item5 = participant.item5
+                }
+                if(participant.item6 == 0){
+                    item6 = 7050
+                }
+                else{
+                    item6 = participant.item6
+                }
+                return(
+                    <div className={style.itemList}>
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item0}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item1}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item2}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item3}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item4}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item5}.png`}/> 
+                            <img className={style.tricketImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item6}.png`}/> 
+                    </div>
+                );
+            })
+            let position = ""
+            switch(participant.individualPosition){
+                case "TOP":
+                    position = <img className={style.champPicture} src={TOP}/>
+                    break
+                case "JUNGLE":
+                    position = <img className={style.champPicture} src={JUNGLE}/>
+                    break
+                case "MIDDLE":
+                    position = <img className={style.champPicture} src={MIDDLE}/>
+                    break
+                case "BOTTOM":
+                    position = <img className={style.champPicture} src={BOTTOM}/>
+                    break
+                case "UTILITY":
+                    position = <img className={style.champPicture} src={UTILITY}/>
+                    break
+            }
             return(
                 <div className={style.playerStats}>
+                    {position}
                     <h4 className={style.champLevel}>{champLevel}</h4>
                     <img className={style.champPicture} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championsData.filter((champion) => (champion.key == participant.championId))[0].image.full}`} />
                     <h4 className={style.playerName}>{participant.summonerName}</h4>
                     <h4 className={style.statLine}>{kills} / {deaths} / {assists}</h4>
+                    <div>{playerItems}</div>
                     <h4 className={style.creepScore}>{creepScore}</h4>
                     <h4 className={style.statLine}>{totalDamageDealt}</h4>
                     <h4 className={style.statLine}>{totalDamageTaken}</h4>
@@ -106,12 +193,94 @@ export default function GameDetails({profileId, gameDetails, participants, champ
             const totalDamageDealt = participant.totalDamageDealtToChampions
             const totalDamageTaken = participant.totalDamageTaken
             const totalGold = participant.goldEarned
+            const playerItems = gameDetails.info.participants.filter((participant1) => (participant1.puuid == participant.puuid)).map((participant) => {
+                let item0 = 0
+                let item1 = 0
+                let item2 = 0
+                let item3 = 0
+                let item4 = 0
+                let item5 = 0
+                let item6 = 0
+                if(participant.item0 == 0){
+                    item0 = 7050
+                }
+                else{
+                    item0 = participant.item0
+                }
+                if(participant.item1 == 0){
+                    item1 = 7050
+                }
+                else{
+                    item1 = participant.item1
+                }
+                if(participant.item2 == 0){
+                    item2 = 7050
+                }
+                else{
+                    item2 = participant.item2
+                }
+                if(participant.item3 == 0){
+                    item3 = 7050
+                }
+                else{
+                    item3 = participant.item3
+                }
+                if(participant.item4 == 0){
+                    item4 = 7050
+                }
+                else{
+                    item4 = participant.item4
+                }
+                if(participant.item5 == 0){
+                    item5 = 7050
+                }
+                else{
+                    item5 = participant.item5
+                }
+                if(participant.item6 == 0){
+                    item6 = 7050
+                }
+                else{
+                    item6 = participant.item6
+                }
+                return(
+                    <div className={style.itemList}>
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item0}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item1}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item2}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item3}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item4}.png`}/> 
+                            <img className={style.itemImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item5}.png`}/> 
+                            <img className={style.tricketImage} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item6}.png`}/> 
+                    </div>
+                );
+            })
+            let position = ""
+            switch(participant.individualPosition){
+                case "TOP":
+                    position = <img className={style.champPicture} src={TOP}/>
+                    break
+                case "JUNGLE":
+                    position = <img className={style.champPicture} src={JUNGLE}/>
+                    break
+                case "MIDDLE":
+                    position = <img className={style.champPicture} src={MIDDLE}/>
+                    break
+                case "BOTTOM":
+                    position = <img className={style.champPicture} src={BOTTOM}/>
+                    break
+                case "UTILITY":
+                    position = <img className={style.champPicture} src={UTILITY}/>
+                    break
+            }
             return(
                 <div className={style.playerStats}>
+                    {position}
                     <h4 className={style.champLevel}>{champLevel}</h4>
                     <img className={style.champPicture} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championsData.filter((champion) => (champion.key == participant.championId))[0].image.full}`} />
                     <h4 className={style.playerName}>{participant.summonerName}</h4>
                     <h4 className={style.statLine}>{kills} / {deaths} / {assists}</h4>
+                    <div>{playerItems}</div>
                     <h4 className={style.creepScore}>{creepScore}</h4>
                     <h4 className={style.statLine}>{totalDamageDealt}</h4>
                     <h4 className={style.statLine}>{totalDamageTaken}</h4>

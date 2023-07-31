@@ -50,6 +50,7 @@
 }
 .headerSpacer{
     min-width: 350px;
+    margin-right: 345px;
 }
 .teamHeader{
     display: flex;
@@ -64,4 +65,13 @@
     min-width: 50px;
     max-width: 90px;
     margin-left: 10px;
+}
+.itemImage{
+    height: 40px;
+    margin: 1px;
+}
+.tricketImage{
+    height: 40px;
+    border-radius: 50%;
+    margin: 1px;
 }
