@@ -52,6 +52,7 @@ class App extends Component{
       for (let key in response.data.data){
         itemsData.push(response.data.data[key]);
       }
+      
       //put champ data into the state
       this.setState({itemsData: itemsData});
     })
