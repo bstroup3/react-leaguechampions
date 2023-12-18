@@ -25,7 +25,8 @@ class App extends Component{
         version: '',
         gameDetails: {},
         participants: [],
-        profileId: ""
+        profileId: "",
+        tagLine: ""
     }
   }
 
@@ -52,7 +53,7 @@ class App extends Component{
       for (let key in response.data.data){
         itemsData.push(response.data.data[key]);
       }
-      
+
       //put champ data into the state
       this.setState({itemsData: itemsData});
     })
@@ -111,9 +112,10 @@ class App extends Component{
     this.setState({searchfield: event.target.value});
   }
 
-  onGameDetailLoad = (profileId ,gameDetails, participants) => {
+  onGameDetailLoad = (profileId, tagLine, gameDetails, participants) => {
     this.setState({
       profileId: profileId,
+      tagLine: tagLine,
       gameDetails: gameDetails,
       participants: participants
     })

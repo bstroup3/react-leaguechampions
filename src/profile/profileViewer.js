@@ -7,8 +7,9 @@ import Match from "./match.js"
 import { Link } from "react-router-dom";
 
 export default function ProfileViewer({championsData, version, onGameDetailLoad}){
-    const username = window.location.pathname.split("/")[window.location.pathname.split("/").length-1].split("&")[0]
-    const server = window.location.pathname.split("/")[window.location.pathname.split("/").length-1].split("&")[1]
+    const username = window.location.pathname.split("/")[window.location.pathname.split("/").length-1].split("&")[0].split("+")[0]
+    const tagLine = window.location.pathname.split("/")[window.location.pathname.split("/").length-1].split("&")[0].split("+")[1]
+    const server = "americas"
     const [responseCode, setResponseCode] = useState(200)
     const api_key = process.env.REACT_APP_API_KEY
     const [profile, setProfile] = useState("")
@@ -17,14 +18,14 @@ export default function ProfileViewer({championsData, version, onGameDetailLoad}
     const [matches, setMatches] = useState([])
     const [ranks, setRanks] = useState([])
     useEffect(() => {
-        Axios.get(`https://${server}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}?api_key=RGAPI-${api_key}`)
+        Axios.get(`https://${server}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${username}/${tagLine}?api_key=RGAPI-${api_key}`)
         .then((response) => {
             setProfile(response.data)
-            Axios.get(`https://${server}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${response.data.id}?api_key=RGAPI-${api_key}`)
+            Axios.get(`https://${server}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/${response.data.puuid}?api_key=RGAPI-${api_key}`)
             .then((response) => {
                 setChampionMastery(response.data)
             })
-            Axios.get(`https://${server}.api.riotgames.com/lol/league/v4/entries/by-summoner/${response.data.id}?api_key=RGAPI-${api_key}`)
+            Axios.get(`https://${server}.api.riotgames.com/lol/league/v4/entries/by-summoner/${response.data.puuid}?api_key=RGAPI-${api_key}`)
             .then((response) => {
                 setRanks(response.data)
             })

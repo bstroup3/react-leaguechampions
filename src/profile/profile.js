@@ -13,6 +13,7 @@ export default function Profile({ searchfield, onSearchChange }) {
             <Header />
             <div className={style.profilePage}>
                 <h1 className={style.profileHeader}>Profile Look-up</h1>
+                <h4>(Don't forget to put the tagline using a +)</h4>
                 <Form action={`/react-leaguechampions/profile/${searchfield}&${filter}`} className={style.inputs}>
                     <input type="search" placeholder="Search Summoners" onChange={onSearchChange} className={style.SearchBar} />
                     <select defaultValue="na1" onChange={onFilterChange} className={style.serverFilter}>
